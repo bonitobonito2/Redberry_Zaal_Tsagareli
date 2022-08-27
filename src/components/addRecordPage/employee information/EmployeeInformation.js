@@ -1,6 +1,23 @@
-import React, { Fragment } from "react";
+import Select from "react-select";
+import React, { Fragment, useState } from "react";
 import classes from "./EmployeeInformation.module.css";
-function EmployeeInformation() {
+
+function EmployeeInformation(props) {
+  console.log(props, "xd");
+  const [choosenTeam, setChoosenTeam] = useState(null);
+  // const options = [
+  //   { value: "chocolate", label: "Chocolate" },
+  //   { value: "strawberry", label: "Strawberry" },
+  //   { value: "vanilla", label: "Vanilla" },
+  // ];
+  const optionsForTeam = props.teams.map((value) => {
+    return { value: value.name, label: value.name };
+  });
+  const optionsForPosition = props.positions.map((value) => {
+    return { value: value.name, label: value.name };
+  });
+  const handleChange = (selectedOption) => setChoosenTeam(selectedOption);
+
   return (
     <Fragment>
       <div className={classes.nameAndLastName}>
@@ -21,19 +38,15 @@ function EmployeeInformation() {
       </div>
 
       <div className={classes.team}>
-        <select>
-          <option className={classes.option}>bmw</option>
-          <option>bmw</option>
-          <option>bmw</option>
-        </select>
+        <Select
+          options={optionsForTeam}
+          placeholder="თიმი"
+          onChange={handleChange}
+        />
       </div>
 
       <div className={classes.team}>
-        <select>
-          <option className={classes.option}>bmw</option>
-          <option>bmw</option>
-          <option>bmw</option>
-        </select>
+        <Select options={optionsForPosition} placeholder="პოზიცია" />
       </div>
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
@@ -53,6 +66,9 @@ function EmployeeInformation() {
             უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს
           </span>
         </div>
+      </div>
+      <div className={classes.actions}>
+        <button>შემდეგი</button>
       </div>
     </Fragment>
   );
