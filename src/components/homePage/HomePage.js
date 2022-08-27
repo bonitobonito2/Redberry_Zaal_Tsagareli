@@ -3,7 +3,7 @@ import classes from "./HomePage.module.css";
 import mainPageImage from '../../images/mainPageImage.png'
 import ActionButtons from "./actions/ActionButtons";
 import pictureForIphone from '../../images/mainPageImageForIphone.png'
-import reddarbieLogo from '../../images/LOGO-02 1.png'
+import reddarbieLogo from '../../images/redberryLogo.png'
 function homePage() {
   return (
     <div className={classes.mainPage}>
