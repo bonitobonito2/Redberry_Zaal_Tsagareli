@@ -1,23 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useEffect } from "react";
+import "./App.css";
+import axios from "axios";
+import HomePage from "./components/homePage/HomePage";
+import { Routes, Route, Navigate } from "react-router-dom";
+import homePage from "./components/homePage/HomePage";
 function App() {
+  useEffect(() => {
+    const getData = async () => {
+      const data = await axios.get(
+        "https://pcfy.redberryinternship.ge/api/teams"
+      );
+      const result = await data.data;
+      console.log(result);
+    };
+    getData();
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
     </div>
   );
 }
