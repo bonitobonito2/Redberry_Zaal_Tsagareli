@@ -1,0 +1,66 @@
+.nameAndLastName {
+  width: 878px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nameDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 45%;
+  gap: 1px;
+}
+
+.nameDiv input {
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid rgb(138, 190, 225);
+  height: 40px;
+}
+
+.requirments {
+  font-size: 13px;
+  color: gray;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 550;
+}
+
+.team{
+    width: 100%;
+}
+.team select{
+    width: 878px;
+    height: 50px;
+}
+.team option{
+    height: 50px;
+}
+
+.option{
+    height: 100px;
+}
+
+.fullInput{
+    width: 878px;
+}
+
+.inputDiv{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+   
+}
+
+.inputDiv input {
+    width: 100%;
+    border-radius: 3px;
+    border: 2px solid rgb(138, 190, 225);
+    height: 40px;
+  }

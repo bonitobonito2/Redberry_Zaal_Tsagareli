@@ -3,7 +3,7 @@ import "./App.css";
 import axios from "axios";
 import HomePage from "./components/homePage/HomePage";
 import { Routes, Route, Navigate } from "react-router-dom";
-import homePage from "./components/homePage/HomePage";
+import AddRecord from "./components/addRecordPage/AddRecord";
 function App() {
   useEffect(() => {
     const getData = async () => {
@@ -19,6 +19,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/addRecord" element={<AddRecord />} />
       </Routes>
     </div>
   );

@@ -1,12 +1,20 @@
-import React, { Fragment } from 'react'
-import classes from './ActionButtons.module.css'
+import React, { Fragment } from "react";
+import { useNavigate} from "react-router-dom";
+import classes from "./ActionButtons.module.css";
 function ActionButtons() {
+  const navigate = useNavigate()
+  const addRecordHandler = () => {
+    navigate("/addRecord", { replace: true });
+    console.log('clicked')
+  };
   return (
     <Fragment>
-        <button className={classes.button}>ჩანაწერის დამატება</button>
-        <button className={classes.button}>ჩანაწერების სია</button>
+      <button onClick={addRecordHandler} className={classes.button}>
+        ჩანაწერის დამატება
+      </button>
+      <button className={classes.button}>ჩანაწერების სია</button>
     </Fragment>
-  )
+  );
 }
 
-export default ActionButtons
+export default ActionButtons;
