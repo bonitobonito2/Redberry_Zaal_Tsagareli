@@ -10,3 +10,21 @@
     color: #FFFFFF;
     cursor: pointer;
 }
+
+@media only screen and (max-width: 500px) {
+    .button{
+        width: 350px;
+        height: 60px;
+        font-weight: 500;
+        font-size: 20px;
+        background-color: #62A1EB;
+        margin: 10px;
+        border: none;
+        border-radius: 5px;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+    
+   
+
+}

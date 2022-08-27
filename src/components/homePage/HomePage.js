@@ -2,6 +2,7 @@ import React from "react";
 import classes from "./HomePage.module.css";
 import mainPageImage from '../../images/mainPageImage.png'
 import ActionButtons from "./actions/ActionButtons";
+import pictureForIphone from '../../images/mainPageImageForIphone.png'
 import reddarbieLogo from '../../images/LOGO-02 1.png'
 function homePage() {
   return (
@@ -11,6 +12,9 @@ function homePage() {
       </div>
       <div className={classes.picture}>
         <img src = {mainPageImage} />
+      </div>
+      <div className={classes.pictureForIphone}>
+        <img src = {pictureForIphone} />
       </div>
       <div className={classes.actions}>
         <ActionButtons />
