@@ -1,22 +1,20 @@
 import Select from "react-select";
 import React, { Fragment, useState } from "react";
-import classes from "./EmployeeInformation.module.css";
+import classes from "./EmployeeForm.module.css";
 
-function EmployeeInformation(props) {
-  console.log(props, "xd");
+function EmployeeForm(props) {
+  const [choosenPosition, setChoosenPosition] = useState(null);
   const [choosenTeam, setChoosenTeam] = useState(null);
-  // const options = [
-  //   { value: "chocolate", label: "Chocolate" },
-  //   { value: "strawberry", label: "Strawberry" },
-  //   { value: "vanilla", label: "Vanilla" },
-  // ];
+
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
   });
   const optionsForPosition = props.positions.map((value) => {
     return { value: value.name, label: value.name };
   });
-  const handleChange = (selectedOption) => setChoosenTeam(selectedOption);
+  const teamChangeHandler = (selectedOption) => setChoosenTeam(selectedOption);
+  const positionChangeHandler = (selectedOption) =>
+    setChoosenPosition(selectedOption);
 
   return (
     <Fragment>
@@ -41,12 +39,16 @@ function EmployeeInformation(props) {
         <Select
           options={optionsForTeam}
           placeholder="თიმი"
-          onChange={handleChange}
+          onChange={teamChangeHandler}
         />
       </div>
 
       <div className={classes.team}>
-        <Select options={optionsForPosition} placeholder="პოზიცია" />
+        <Select
+          options={optionsForPosition}
+          placeholder="პოზიცია"
+          onChange={positionChangeHandler}
+        />
       </div>
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
@@ -68,10 +70,10 @@ function EmployeeInformation(props) {
         </div>
       </div>
       <div className={classes.actions}>
-        <button>შემდეგი</button>
+        <button onClick={() => props.changePage("leptop")}>შემდეგი</button>
       </div>
     </Fragment>
   );
 }
 
-export default EmployeeInformation;
+export default EmployeeForm;

@@ -1,0 +1,95 @@
+.chooseImage {
+  width: 878px;
+  height: 350px;
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 120px;
+  color: #62a1eb;
+  border-radius: 8px;
+}
+.chooseImage span {
+  max-width: 250px;
+  font-weight: 500;
+  font-size: 19px;
+}
+.chooseImage button {
+  background-color: #62a1eb;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.leptopBrand_leptopName {
+  width: 878px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 50px;
+  border-bottom: 1px solid rgb(189, 184, 184);
+}
+.brand {
+  width: 45%;
+}
+.brand Select {
+  width: 100%;
+}
+.inputDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 45%;
+  
+  gap: 1px;
+}
+
+.inputDiv input {
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid rgb(138, 190, 225);
+  height: 40px;
+}
+.requirments {
+  font-size: 13px;
+  color: gray;
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 550;
+}
+.cpu {
+  width: 878px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.cpuSelector{
+    width: 30%;
+}
+
+
+.actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 878px;
+  }
+  
+  .actions button {
+    background-color: #62a1eb;
+    color: white;
+    border: none;
+  
+    padding: 12px 30px;
+    font-size: 20px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
