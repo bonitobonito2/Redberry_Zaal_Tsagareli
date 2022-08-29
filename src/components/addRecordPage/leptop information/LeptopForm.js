@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import Select from "react-select";
 import classes from "./LeptopForm.module.css";
+import Input from "../../UI/Input";
 function LeptopForm(props) {
   console.log(props);
   const optionsForCpu = props.cpus.map((data) => {
@@ -18,11 +19,10 @@ function LeptopForm(props) {
       </div>
       <div className={classes["leptopBrand_leptopName"]}>
         <div className={classes.inputDiv}>
-          <span className={classes.title}>ლეპტოპის სახელი:</span>
-          <input placeholder="ლეპტოპის სახელი" />
-          <span className={classes.requirments}>
-            {"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
-          </span>
+          <Input
+            name={"ლეპტოპის სახელი"}
+            requirments={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
+          />
         </div>
         <div className={classes.brand}>
           <Select placeholder="ლეპტოპის ბრენდი" options={optionsForBrand} />
@@ -33,24 +33,59 @@ function LeptopForm(props) {
         <div className={classes.cpuSelector}>
           <Select placeholder="CPU" options={optionsForCpu} />
         </div>
+        <div className={classes.inputDivForCpu}>
+          <Input name={"CPU-ს ბირთვი"} requirments={"მხოლოდ ციფრები"} />
+        </div>
+        <div className={classes.inputDivForCpu}>
+          <Input name={"CPU-ს ნაკადი"} requirments={"მხოლოდ ციფრები"} />
+        </div>
+      </div>
+      <div className={classes.cpu}>
         <div className={classes.inputDiv}>
-          <span className={classes.title}>ლეპტოპის სახელი:</span>
-          <input placeholder="ლეპტოპის სახელი" />
-          <span className={classes.requirments}>
-            {"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
-          </span>
+          <Input name="ლეპტოპის RAM (GB)" requirments="მხოლოდ ციფრები" />
+        </div>
+        <div className={classes.radios}>
+          <span>მეხსიერების ტიპი</span>
+          <div>
+            <input type="radio" value="SSD" name="SSD" /> Male
+            <input type="radio" value="HDD" name="HDD" /> Male
+          </div>
+        </div>
+      </div>
+      <div className={classes.border} />
+      <div className={classes.leptopPersonalInformation}>
+        <div className={classes.inputDiv}>
+          <Input
+            name="შეძენის რიცხვი (არჩევითი)"
+            placeholder="დდ / თთ / წწწწ"
+          />
         </div>
         <div className={classes.inputDiv}>
-          <span className={classes.title}>ლეპტოპის სახელი:</span>
-          <input placeholder="ლეპტოპის სახელი" />
-          <span className={classes.requirments}>
-            {"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
-          </span>
+          <Input
+            name="ლეპტოპის ფასი, ₾"
+            placeholder="0000"
+            requirments="მხოლოდ ციფრები"
+          /> 
+        </div>
+      </div>
+      <div>
+        <div className={classes.leptopCondition}>
+          <span>მეხსიერების ტიპი</span>
+          <div>
+            <input type="radio" value="SSD" name="SSD" /> Male
+            <input type="radio" value="HDD" name="HDD" /> Male
+          </div>
         </div>
       </div>
 
       <div className={classes.actions}>
-        <button onClick={() => props.changePage("employee")}>უკან</button>
+        <button
+          className={classes.back}
+          onClick={() => props.changePage("employee")}
+        >
+          უკან
+        </button>
+        <button className={classes.save}>დამატება</button>
       </div>
     </Fragment>
   );
