@@ -61,7 +61,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 50px;
+   
   }
 
   .chooseForm {
@@ -78,8 +78,9 @@
     line-height: 24px;
   }
 
-  .none{
+  .none {
     display: none;
   }
-  
+
+
 }

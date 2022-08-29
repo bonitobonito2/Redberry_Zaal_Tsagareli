@@ -12,3 +12,20 @@
   border: 2px solid rgb(138, 190, 225);
   height: 40px;
 }
+
+.errorTitle{
+  font-size: 15px;
+  font-weight: 550;
+  color: red;
+}
+.error{
+  font-size: 13px;
+  
+  color: red;
+}
+
+.Errorinput{
+  font-size: 15px;
+  font-weight: 550;
+  border: 2px solid red;
+}

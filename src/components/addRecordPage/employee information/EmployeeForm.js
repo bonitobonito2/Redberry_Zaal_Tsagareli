@@ -2,10 +2,27 @@ import Select from "react-select";
 import React, { Fragment, useState } from "react";
 import classes from "./EmployeeForm.module.css";
 import Input from "../../UI/Input";
-
+import UseValidation from "../../../Hooks/useValidation";
 function EmployeeForm(props) {
   const [choosenPosition, setChoosenPosition] = useState(null);
   const [choosenTeam, setChoosenTeam] = useState(null);
+  const {
+    inputValue: inputValueOfName,
+    checkIfInputIsValid: nameCheker,
+    isValid: nameIsValid,
+    isTouched: nameIsTouched,
+    touchHandler: nameTouchHandler,
+    errorText: nameError,
+  } = UseValidation("name");
+
+  const {
+    inputValue: inputValueOflastName,
+    checkIfInputIsValid: lastNameCheker,
+    isValid: lastNameIsValid,
+    isTouched: lastNameIsTouched,
+    touchHandler: lastNameTouchHandler,
+    errorText: lastNameError,
+  } = UseValidation("lastname");
 
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
@@ -22,12 +39,24 @@ function EmployeeForm(props) {
       <div className={classes.nameAndLastName}>
         <div className={classes.nameDiv}>
           <Input
+            isValid={nameIsValid}
+            touchHandler={nameTouchHandler}
+            isTouched={nameIsTouched}
+            errorText={nameError}
+            value={inputValueOfName}
+            nameChaker={nameCheker}
             name="სახაელი:"
             requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
           />
         </div>
         <div className={classes.nameDiv}>
           <Input
+            isValid={lastNameIsValid}
+            touchHandler={lastNameTouchHandler}
+            isTouched={lastNameIsTouched}
+            errorText={lastNameError}
+            value={inputValueOflastName}
+            nameChaker={lastNameCheker}
             name="გვარი:"
             requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
           />
