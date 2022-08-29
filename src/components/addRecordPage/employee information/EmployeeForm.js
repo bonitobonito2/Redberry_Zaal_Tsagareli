@@ -24,6 +24,16 @@ function EmployeeForm(props) {
     errorText: lastNameError,
   } = UseValidation("lastname");
 
+
+  const {
+    inputValue: inputValueOfemail,
+    checkIfInputIsValid: emailCheker,
+    isValid: emailIsValid,
+    isTouched: emailIsTouched,
+    touchHandler: emailTouchHandler,
+    errorText: emailError,
+  } = UseValidation("email");
+
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
   });
@@ -81,6 +91,12 @@ function EmployeeForm(props) {
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
           <Input
+          isValid={emailIsValid}
+          touchHandler={emailTouchHandler}
+          isTouched={emailIsTouched}
+          errorText={emailError}
+          value={inputValueOfemail}
+          nameChaker={emailCheker}
             name="მეილი:"
             requirments="   უნდა მთავრდებოდეს @redberry.ge-ით"
           />

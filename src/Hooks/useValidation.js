@@ -1,19 +1,24 @@
 import { useState, useRef } from "react";
-
+import validateEmail from "../ValidationFunctions/emailValidation";
 import nameValidation from "../ValidationFunctions/nameValidation";
 const UseValidation = (inputType = "text") => {
   const [isValid, setValid] = useState(false);
   const [isTouched, setIsTouched] = useState(false);
-  const [errorText, setErrorText] = useState("");
+  const [errorText, setErrorText] = useState(false);
   const inputValue = useRef("");
   const checkIfInputIsValid = () => {
     if (inputType === "name" || inputType === 'lastname') {
       const check = nameValidation(inputValue.current.value);
+      setValid(check);
+      setErrorText(!check)
+   
+      
+    }
 
-      if (typeof check === "boolean") setValid(true);
-      else {
-        setErrorText(check[0]);
-      }
+    if(inputType === 'email'){
+      const check = validateEmail(inputValue.current.value)
+      setValid(check)
+      setErrorText(!check)
     }
   };
 

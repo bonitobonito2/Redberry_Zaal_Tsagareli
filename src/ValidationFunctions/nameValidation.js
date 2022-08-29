@@ -17,10 +17,10 @@ function nameValidation(inputText) {
     if (text.length > 2) {
       return true;
     } else {
-      return ["სახელის სიგრძე, 2 ზე ნაკლებია"];
+      return false;
     }
   }
-  return ["გამოიყენე ქართული ასოები"];
+  return false;
 }
 
 export default nameValidation;
