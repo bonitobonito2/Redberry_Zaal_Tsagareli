@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import classes from "./Input.module.css";
 function Input(props) {
+  console.log(props.type)
   return (
     <Fragment>
       <span
@@ -13,6 +14,7 @@ function Input(props) {
         {props.name}
       </span>
       <input
+         type={props.type ? props.type : "text"}
         onFocus={props.touchHandler}
         ref={props.value}
         onChange={props.nameChaker}

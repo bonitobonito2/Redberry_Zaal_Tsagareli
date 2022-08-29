@@ -24,7 +24,6 @@ function EmployeeForm(props) {
     errorText: lastNameError,
   } = UseValidation("lastname");
 
-
   const {
     inputValue: inputValueOfemail,
     checkIfInputIsValid: emailCheker,
@@ -33,6 +32,15 @@ function EmployeeForm(props) {
     touchHandler: emailTouchHandler,
     errorText: emailError,
   } = UseValidation("email");
+
+  const {
+    inputValue: inputValueOfnumber,
+    checkIfInputIsValid: numberCheker,
+    isValid: numberIsValid,
+    isTouched: numberIsTouched,
+    touchHandler: numberTouchHandler,
+    errorText: numberError,
+  } = UseValidation("number");
 
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
@@ -91,12 +99,13 @@ function EmployeeForm(props) {
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
           <Input
-          isValid={emailIsValid}
-          touchHandler={emailTouchHandler}
-          isTouched={emailIsTouched}
-          errorText={emailError}
-          value={inputValueOfemail}
-          nameChaker={emailCheker}
+            type="email"
+            isValid={emailIsValid}
+            touchHandler={emailTouchHandler}
+            isTouched={emailIsTouched}
+            errorText={emailError}
+            value={inputValueOfemail}
+            nameChaker={emailCheker}
             name="მეილი:"
             requirments="   უნდა მთავრდებოდეს @redberry.ge-ით"
           />
@@ -106,6 +115,13 @@ function EmployeeForm(props) {
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
           <Input
+            isValid={numberIsValid}
+            touchHandler={numberTouchHandler}
+            isTouched={numberIsTouched}
+            errorText={numberError}
+            value={inputValueOfnumber}
+            nameChaker={numberCheker}
+            type="number"
             name="ტელეფონის ნომერი:"
             requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           />
