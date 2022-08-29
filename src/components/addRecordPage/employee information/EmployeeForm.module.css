@@ -20,15 +20,7 @@
   height: 40px;
 }
 
-.requirments {
-  font-size: 13px;
-  color: gray;
-}
 
-.title {
-  font-size: 15px;
-  font-weight: 550;
-}
 
 .team {
   width: 878px;
@@ -72,4 +64,36 @@
   font-size: 20px;
   border-radius: 3px;
   cursor: pointer;
+}
+@media only screen and (max-width: 500px) {
+  .nameAndLastName {
+    width:320px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .nameDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 1px;
+  }
+
+  .team {
+    width:320px;
+  }
+
+  .fullInput {
+    width:320px;
+  }
+  .actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width:320px;
+  }
+  
 }

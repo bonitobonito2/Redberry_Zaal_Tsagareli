@@ -1,6 +1,7 @@
 import Select from "react-select";
 import React, { Fragment, useState } from "react";
 import classes from "./EmployeeForm.module.css";
+import Input from "../../UI/Input";
 
 function EmployeeForm(props) {
   const [choosenPosition, setChoosenPosition] = useState(null);
@@ -20,18 +21,16 @@ function EmployeeForm(props) {
     <Fragment>
       <div className={classes.nameAndLastName}>
         <div className={classes.nameDiv}>
-          <span className={classes.title}>სახაელი:</span>
-          <input placeholder="სახელი" />
-          <span className={classes.requirments}>
-            მინიმუმ 2 სიმბოლო, ქართული ასოები
-          </span>
+          <Input
+            name="სახაელი:"
+            requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
+          />
         </div>
         <div className={classes.nameDiv}>
-          <span className={classes.title}>გვარი:</span>
-          <input placeholder="გვარი" />
-          <span className={classes.requirments}>
-            მინიმუმ 2 სიმბოლო, ქართული ასოები
-          </span>
+          <Input
+            name="გვარი:"
+            requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
+          />
         </div>
       </div>
 
@@ -52,21 +51,19 @@ function EmployeeForm(props) {
       </div>
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
-          <span className={classes.title}>მეილი:</span>
-          <input placeholder="მეილი" />
-          <span className={classes.requirments}>
-            უნდა მთავრდებოდეს @redberry.ge-ით
-          </span>
+          <Input
+            name="მეილი:"
+            requirments="   უნდა მთავრდებოდეს @redberry.ge-ით"
+          />
         </div>
       </div>
 
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
-          <span className={classes.title}>ტელეფონის ნომერი:</span>
-          <input placeholder="ტელეფონის ნომერი" />
-          <span className={classes.requirments}>
-            უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს
-          </span>
+          <Input
+            name="ტელეფონის ნომერი:"
+            requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
+          />
         </div>
       </div>
       <div className={classes.actions}>

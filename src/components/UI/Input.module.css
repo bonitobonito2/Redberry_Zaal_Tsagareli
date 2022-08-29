@@ -1,0 +1,14 @@
+.title {
+  font-size: 15px;
+  font-weight: 550;
+}
+.requirments {
+  font-size: 13px;
+  color: gray;
+}
+.input {
+  width: 100%;
+  border-radius: 3px;
+  border: 2px solid rgb(138, 190, 225);
+  height: 40px;
+}

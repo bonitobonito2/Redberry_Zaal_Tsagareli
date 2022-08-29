@@ -42,10 +42,10 @@ function AddRecord() {
       <div className={classes.page}>
         <div className={classes.main}>
           <div className={classes.chooseForm}>
-            <div className={page === "employee" ? classes.active : ""}>
+            <div className={page === "employee" ? classes.active : classes.none}>
               <span>თანამშრომლის ინფო</span>
             </div>
-            <div className={page === "leptop" ? classes.active : ""}>
+            <div className={page === "leptop" ? classes.active : classes.none}>
               <span>ლეპტოპის მახასიათებლები</span>
             </div>
           </div>

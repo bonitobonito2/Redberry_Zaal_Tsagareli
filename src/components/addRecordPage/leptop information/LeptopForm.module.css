@@ -1,6 +1,6 @@
 .chooseImage {
   width: 878px;
-  height: 350px;
+  height: 300px;
   background-color: #f6f6f6;
   display: flex;
   flex-direction: column;
@@ -44,25 +44,9 @@
   align-items: flex-start;
   flex-direction: column;
   width: 45%;
-  
   gap: 1px;
 }
 
-.inputDiv input {
-  width: 100%;
-  border-radius: 3px;
-  border: 2px solid rgb(138, 190, 225);
-  height: 40px;
-}
-.requirments {
-  font-size: 13px;
-  color: gray;
-}
-
-.title {
-  font-size: 15px;
-  font-weight: 550;
-}
 .cpu {
   width: 878px;
   display: flex;
@@ -70,26 +54,151 @@
   align-items: center;
   justify-content: space-between;
 }
-.cpuSelector{
-    width: 30%;
+.cpuSelector {
+  width: 30%;
 }
 
-
 .actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 878px;
+}
+
+.save {
+  background-color: #62a1eb;
+  color: white;
+  border: none;
+
+  padding: 12px 30px;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.back {
+  background-color: white;
+  color: #62a1eb;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.inputDivForCpu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
+  width: 30%;
+}
+.radios {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-left: 70px;
+  gap: 15px;
+}
+.border {
+  width: 878px;
+  border-bottom: 1px solid rgb(189, 184, 184);
+}
+.leptopPersonalInformation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 878px;
+}
+
+.leptopCondition {
+  width: 878px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+}
+
+@media only screen and (max-width: 500px) {
+  .chooseImage {
+    width: 320px;
+    height: 250px;
+    background-color: #f6f6f6;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    width: 878px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 120px;
+    color: #62a1eb;
+    border-radius: 8px;
+  }
+
+  .leptopBrand_leptopName {
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 50px;
+    border-bottom: 1px solid rgb(189, 184, 184);
+  }
+  .brand {
+    width: 100%;
+  }
+  .inputDiv {
+    width: 100%;
+  }
+
+  .cpu {
+    width: 320px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .cpuSelector {
+    width: 100%;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 360px;
+  }
+
+  .inputDivForCpu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .radios {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+  }
+
+
+  .leptopPersonalInformation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
   }
   
-  .actions button {
-    background-color: #62a1eb;
-    color: white;
-    border: none;
-  
-    padding: 12px 30px;
-    font-size: 20px;
-    border-radius: 3px;
-    cursor: pointer;
+  .leptopCondition {
+    width: 320px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
   }
-  
+}
