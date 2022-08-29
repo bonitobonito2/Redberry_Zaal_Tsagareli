@@ -21,6 +21,7 @@ const UseValidation = (inputType = "text") => {
     }
     if (inputType === "number") {
       const check = phoneNumberValidation(inputValue.current.value);
+      setValid(check)
       setErrorText(!check);
     }
   };

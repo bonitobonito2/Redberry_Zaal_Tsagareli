@@ -1,11 +1,14 @@
 import Select from "react-select";
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import classes from "./EmployeeForm.module.css";
 import Input from "../../UI/Input";
 import UseValidation from "../../../Hooks/useValidation";
 function EmployeeForm(props) {
+  const [formIsValid, setFormIsValid] = useState(false);
   const [choosenPosition, setChoosenPosition] = useState(null);
   const [choosenTeam, setChoosenTeam] = useState(null);
+  const [taemIsChoosen, setTeamisChoosen] = useState(false);
+  const [positionIsChoosen, setPositionisChoosen] = useState(false);
   const {
     inputValue: inputValueOfName,
     checkIfInputIsValid: nameCheker,
@@ -42,15 +45,42 @@ function EmployeeForm(props) {
     errorText: numberError,
   } = UseValidation("number");
 
+  useEffect(() => {
+    console.log(nameIsValid, emailIsValid, numberIsValid, lastNameIsValid);
+    if (
+      nameIsValid &&
+      emailIsValid &&
+      numberIsValid &&
+      lastNameIsValid &&
+      positionIsChoosen &&
+      taemIsChoosen
+    ) {
+      setFormIsValid(true);
+    }
+  }, [
+    positionIsChoosen,
+    taemIsChoosen,
+    emailIsValid,
+    numberIsValid,
+    nameIsValid,
+    lastNameIsValid,
+  ]);
+  console.log(numberIsValid, "number");
+  console.log(formIsValid, "formisValid");
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
   });
   const optionsForPosition = props.positions.map((value) => {
     return { value: value.name, label: value.name };
   });
-  const teamChangeHandler = (selectedOption) => setChoosenTeam(selectedOption);
-  const positionChangeHandler = (selectedOption) =>
+  const teamChangeHandler = (selectedOption) => {
+    setTeamisChoosen(true);
+    setChoosenTeam(selectedOption);
+  };
+  const positionChangeHandler = (selectedOption) => {
+    setPositionisChoosen(true);
     setChoosenPosition(selectedOption);
+  };
 
   return (
     <Fragment>
@@ -128,7 +158,13 @@ function EmployeeForm(props) {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={() => props.changePage("leptop")}>შემდეგი</button>
+        <button
+          disabled={!formIsValid}
+          className = {!formIsValid ? classes.disabled : classes.active }
+          onClick={() => props.changePage("leptop")}
+        >
+          შემდეგი
+        </button>
       </div>
     </Fragment>
   );

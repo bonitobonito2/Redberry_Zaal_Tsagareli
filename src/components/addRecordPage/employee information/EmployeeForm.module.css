@@ -20,8 +20,6 @@
   height: 40px;
 }
 
-
-
 .team {
   width: 878px;
 }
@@ -55,19 +53,9 @@
   width: 878px;
 }
 
-.actions button {
-  background-color: #62a1eb;
-  color: white;
-  border: none;
-
-  padding: 12px 30px;
-  font-size: 20px;
-  border-radius: 3px;
-  cursor: pointer;
-}
 @media only screen and (max-width: 500px) {
   .nameAndLastName {
-    width:320px;
+    width: 320px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -83,17 +71,36 @@
   }
 
   .team {
-    width:320px;
+    width: 320px;
   }
 
   .fullInput {
-    width:320px;
+    width: 320px;
   }
   .actions {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
-    width:320px;
+    width: 320px;
   }
-  
+}
+.disabled {
+  background-color: #aecaeb;
+  color: white;
+  border: none;
+
+  padding: 12px 30px;
+  font-size: 20px;
+  border-radius: 3px;
+}
+
+.active {
+  background-color: #62a1eb;
+  color: white;
+  border: none;
+
+  padding: 12px 30px;
+  font-size: 20px;
+  border-radius: 3px;
+  cursor: pointer;
 }
