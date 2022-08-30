@@ -56,8 +56,8 @@ function EmployeeForm(props) {
       taemIsChoosen
     ) {
       setFormIsValid(true);
-    }else{
-      setFormIsValid(false)
+    } else {
+      setFormIsValid(false);
     }
   }, [
     positionIsChoosen,
@@ -67,8 +67,7 @@ function EmployeeForm(props) {
     nameIsValid,
     lastNameIsValid,
   ]);
-  console.log(numberIsValid, "number");
-  console.log(formIsValid, "formisValid");
+
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.name, label: value.name };
   });
@@ -76,13 +75,22 @@ function EmployeeForm(props) {
     return { value: value.name, label: value.name };
   });
   const teamChangeHandler = (selectedOption) => {
+    localStorage.setItem("team", selectedOption.value);
     setTeamisChoosen(true);
     setChoosenTeam(selectedOption);
   };
   const positionChangeHandler = (selectedOption) => {
+    localStorage.setItem("position", selectedOption.value);
     setPositionisChoosen(true);
     setChoosenPosition(selectedOption);
   };
+
+  let selectedItem = localStorage.getItem("team");
+  let selectedPosition = localStorage.getItem("position");
+  useEffect(() => {
+    if (selectedItem) setTeamisChoosen(true);
+    if (selectedPosition) setPositionisChoosen(true);
+  }, []);
 
   return (
     <Fragment>
@@ -114,19 +122,37 @@ function EmployeeForm(props) {
       </div>
 
       <div className={classes.team}>
-        <Select
-          options={optionsForTeam}
-          placeholder="თიმი"
-          onChange={teamChangeHandler}
-        />
+        {selectedItem ? (
+          <Select
+            options={optionsForTeam}
+            // placeholder="თიმი"
+            onChange={teamChangeHandler}
+            defaultValue={{ value: selectedItem, label: selectedItem }}
+          />
+        ) : (
+          <Select
+            options={optionsForTeam}
+            placeholder="თიმი"
+            onChange={teamChangeHandler}
+          />
+        )}
       </div>
 
       <div className={classes.team}>
-        <Select
-          options={optionsForPosition}
-          placeholder="პოზიცია"
-          onChange={positionChangeHandler}
-        />
+        {selectedPosition ? (
+          <Select
+            options={optionsForPosition}
+            placeholder="პოზიცია"
+            onChange={positionChangeHandler}
+            defaultValue={{ value: selectedPosition, label: selectedPosition }}
+          />
+        ) : (
+          <Select
+            options={optionsForPosition}
+            placeholder="პოზიცია"
+            onChange={positionChangeHandler}
+          />
+        )}
       </div>
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>
@@ -154,7 +180,7 @@ function EmployeeForm(props) {
             value={inputValueOfnumber}
             nameChaker={numberCheker}
             type="text"
-            placeholder = '+995'
+            placeholder="+995"
             name="ტელეფონის ნომერი:"
             requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           />
@@ -162,8 +188,8 @@ function EmployeeForm(props) {
       </div>
       <div className={classes.actions}>
         <button
-           disabled={!formIsValid}
-          className = {!formIsValid ? classes.disabled : classes.active }
+          disabled={!formIsValid}
+          className={!formIsValid ? classes.disabled : classes.active}
           onClick={() => props.changePage("leptop")}
         >
           შემდეგი
