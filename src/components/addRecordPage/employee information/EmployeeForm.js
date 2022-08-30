@@ -5,8 +5,6 @@ import Input from "../../UI/Input";
 import UseValidation from "../../../Hooks/useValidation";
 function EmployeeForm(props) {
   const [formIsValid, setFormIsValid] = useState(false);
-  const [choosenPosition, setChoosenPosition] = useState(null);
-  const [choosenTeam, setChoosenTeam] = useState(null);
   const [taemIsChoosen, setTeamisChoosen] = useState(false);
   const [positionIsChoosen, setPositionisChoosen] = useState(false);
   const {
@@ -46,7 +44,6 @@ function EmployeeForm(props) {
   } = UseValidation("number");
 
   useEffect(() => {
-    console.log(nameIsValid, emailIsValid, numberIsValid, lastNameIsValid);
     if (
       nameIsValid &&
       emailIsValid &&
@@ -77,12 +74,10 @@ function EmployeeForm(props) {
   const teamChangeHandler = (selectedOption) => {
     localStorage.setItem("team", selectedOption.value);
     setTeamisChoosen(true);
-    setChoosenTeam(selectedOption);
   };
   const positionChangeHandler = (selectedOption) => {
     localStorage.setItem("position", selectedOption.value);
     setPositionisChoosen(true);
-    setChoosenPosition(selectedOption);
   };
 
   let selectedItem = localStorage.getItem("team");

@@ -5,7 +5,7 @@ function ActionButtons() {
   const navigate = useNavigate()
   const addRecordHandler = () => {
     navigate("/addRecord", { replace: true });
-    console.log('clicked')
+    
   };
   return (
     <Fragment>

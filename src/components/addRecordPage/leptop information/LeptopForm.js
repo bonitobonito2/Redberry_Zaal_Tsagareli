@@ -56,11 +56,8 @@ function LeptopForm(props) {
       CpuBirviIsValid &&
       leptopNameIsValid
     ) {
-      if (inputValueOfCpuBirvi.length !== 0) {
-        setFormValid(true);
-      }
-    } else {
-      setFormValid(false);
+      if (inputValueOfCpuBirvi.length !== 0) setFormValid(true);
+      else setFormValid(false);
     }
   }, [
     CoastIsValid,
