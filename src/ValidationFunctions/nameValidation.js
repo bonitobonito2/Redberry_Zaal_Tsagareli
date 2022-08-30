@@ -12,7 +12,6 @@ function nameValidation(inputText) {
     break;
   }
 
-  console.log(language);
   if (language === "Georgian") {
     if (text.length > 2) {
       return true;

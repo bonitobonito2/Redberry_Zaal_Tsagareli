@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import classes from "./HomePage.module.css";
 import mainPageImage from '../../images/mainPageImage.png'
 import ActionButtons from "./actions/ActionButtons";
 import pictureForIphone from '../../images/mainPageImageForIphone.png'
 import reddarbieLogo from '../../images/redberryLogo.png'
-function homePage() {
+function HomePage() {
+  useEffect(()=>{
+    localStorage.clear()
+  },[])
   return (
     <div className={classes.mainPage}>
       <div className={classes.logo}>
@@ -23,4 +26,4 @@ function homePage() {
   );
 }
 
-export default homePage;
+export default HomePage;

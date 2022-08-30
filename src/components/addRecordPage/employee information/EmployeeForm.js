@@ -56,6 +56,8 @@ function EmployeeForm(props) {
       taemIsChoosen
     ) {
       setFormIsValid(true);
+    }else{
+      setFormIsValid(false)
     }
   }, [
     positionIsChoosen,
@@ -151,7 +153,8 @@ function EmployeeForm(props) {
             errorText={numberError}
             value={inputValueOfnumber}
             nameChaker={numberCheker}
-            type="number"
+            type="text"
+            placeholder = '+995'
             name="ტელეფონის ნომერი:"
             requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           />
@@ -159,7 +162,7 @@ function EmployeeForm(props) {
       </div>
       <div className={classes.actions}>
         <button
-          disabled={!formIsValid}
+           disabled={!formIsValid}
           className = {!formIsValid ? classes.disabled : classes.active }
           onClick={() => props.changePage("leptop")}
         >
