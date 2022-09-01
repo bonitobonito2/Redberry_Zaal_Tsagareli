@@ -1,0 +1,52 @@
+.succses {
+  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  background-color: #4a4a4a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.succsesInformation {
+  width: 35%;
+
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+.succsesInformation span {
+  font-weight: 550;
+  font-size: 20px;
+}
+.img {
+  width: 30%;
+}
+
+.btn1 {
+  width: 180px;
+  height: 55px;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: #62a1eb;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff;
+  cursor: pointer;
+  
+}
+
+.btn2{
+    height: 55px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 20px;
+    background-color: white;
+    color:  #62a1eb;
+    border: none;
+}

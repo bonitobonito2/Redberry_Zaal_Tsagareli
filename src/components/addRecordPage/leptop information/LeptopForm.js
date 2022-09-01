@@ -1,4 +1,5 @@
 import React, { Fragment, memo, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ImageUpload from "../../UI/ImageUpload";
 import Select from "react-select";
 import postRequestHandler from "../../../helper/postRequestHandler";
@@ -6,6 +7,7 @@ import UseValidation from "../../../Hooks/useValidation";
 import classes from "./LeptopForm.module.css";
 import Input from "../../UI/Input";
 function LeptopForm(props) {
+  const navigate = useNavigate();
   const [isFormValid, setFormValid] = useState(false);
   const [image, setImage] = useState();
   const [brandIsChoosen, setBrandIsChoosen] = useState(false);
@@ -27,7 +29,11 @@ function LeptopForm(props) {
     setImage(image);
   };
   const reqeuestSendHandler = () => {
-    postRequestHandler({ image: image });
+    const send = postRequestHandler({ image: image });
+    console.log(send);
+    if (send) {
+      localStorage.clear()
+      navigate("/succses", { replace: true });}
   };
   const {
     inputValue: inputValueOfleptopName,

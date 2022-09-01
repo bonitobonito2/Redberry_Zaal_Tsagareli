@@ -4,7 +4,7 @@ console.log(token,'xddddddddd')
 const request = async (dataa) => {
   const result = await axios.post('https://pcfy.redberryinternship.ge/api/laptop/create', dataa);
   const data = await result.data;
-  console.log(await data);
+  if(await data) return true
 };
 
 function postRequestHandler(dataa) {
@@ -50,7 +50,8 @@ function postRequestHandler(dataa) {
 
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
-  request(data);
+  const save = request(data);
+  if(save) return true
 }
 
 export default postRequestHandler;

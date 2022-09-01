@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import "./App.css";
+import SuccsesPage from "./components/succsesPage/succsesPage";
 import axios from "axios";
 import HomePage from "./components/homePage/HomePage";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/succses" element = {<SuccsesPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/addRecord" element={<AddRecord />} />
       </Routes>
