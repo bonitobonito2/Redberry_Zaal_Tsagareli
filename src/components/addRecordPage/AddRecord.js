@@ -5,6 +5,7 @@ import classes from "./AddRecord.module.css";
 import logo from "../../images/LOGO-10 1.png";
 import LeptopForm from "./leptop information/LeptopForm";
 import backButton from "../../images/backButton.png";
+import backButtonForPhone from "../../images/backButtonForPHone.png";
 import EmployeeForm from "./employee information/EmployeeForm";
 function AddRecord() {
   const [sendRequest] = useHttpHook();
@@ -13,11 +14,12 @@ function AddRecord() {
   const [brands, setBrands] = useState();
   const [cpus, setCpus] = useState();
   const [positions, setPositions] = useState();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const backBtnClickHandler = () =>{
-    navigate('/',{replace : false})
-  }
+  const backBtnClickHandler = () => {
+    console.log("clicked");
+    navigate("/", { replace: false });
+  };
   useEffect(() => {
     let configForTeam = {
       url: "https://pcfy.redberryinternship.ge/api/teams",
@@ -48,7 +50,10 @@ function AddRecord() {
     cpus && (
       <div className={classes.page}>
         <div className={classes.back}>
-          <img src={backButton} onClick= {backBtnClickHandler} />
+          <img src={backButton} onClick={backBtnClickHandler} />
+        </div>
+        <div className={classes.backForPhone}>
+          <img src={backButtonForPhone} onClick={backBtnClickHandler} />
         </div>
         <div className={classes.main}>
           <div className={classes.chooseForm}>

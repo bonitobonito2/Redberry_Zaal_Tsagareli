@@ -64,7 +64,9 @@
   justify-content: space-between;
   width: 878px;
 }
-
+.backForPhone{
+  display: none;
+}
 .save {
   background-color: #62a1eb;
   color: white;
@@ -131,7 +133,15 @@
     color: #62a1eb;
     border-radius: 8px;
   }
-
+.backForPhone{
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+.backForPhone img{
+  width: 100px;
+  height: 100px;
+}
   .leptopBrand_leptopName {
     width: 320px;
     display: flex;
