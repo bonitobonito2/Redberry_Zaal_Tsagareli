@@ -20,6 +20,9 @@ function AddRecord() {
     console.log("clicked");
     navigate("/", { replace: false });
   };
+  const idk = () => {
+    navigate("/", { replace: false });
+  };
   useEffect(() => {
     let configForTeam = {
       url: "https://pcfy.redberryinternship.ge/api/teams",
@@ -52,9 +55,9 @@ function AddRecord() {
         <div className={classes.back}>
           <img src={backButton} onClick={backBtnClickHandler} />
         </div>
-        <div className={classes.backForPhone}>
+        <button onClick={backBtnClickHandler} className={classes.backForPhone}>
           <img src={backButtonForPhone} onClick={backBtnClickHandler} />
-        </div>
+        </button>
         <div className={classes.main}>
           <div className={classes.chooseForm}>
             <div
