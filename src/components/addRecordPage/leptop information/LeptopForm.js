@@ -1,10 +1,24 @@
 import React, { Fragment, useEffect, useState } from "react";
+import ImageUpload from "../../UI/ImageUpload";
 import Select from "react-select";
+import postRequestHandler from "../../../helper/postRequestHandler";
 import UseValidation from "../../../Hooks/useValidation";
 import classes from "./LeptopForm.module.css";
 import Input from "../../UI/Input";
 function LeptopForm(props) {
   const [isFormValid, setFormValid] = useState(false);
+  const [image, setImage] = useState();
+  const [brandIsChoosen, setBrandIsChoosen] = useState(false);
+  const [isImageSelected, setImageSelected] = useState(false);
+  const [cpuIsChoosen, setCpuIsChoosen] = useState(false);
+
+  const handlerImageData = (image, selected) => {
+    setImageSelected(selected);
+    setImage(image);
+  };
+  const reqeuestSendHandler = () => {
+    postRequestHandler({ image: image });
+  };
   const {
     inputValue: inputValueOfleptopName,
     checkIfInputIsValid: leptopNameCheker,
@@ -71,13 +85,31 @@ function LeptopForm(props) {
   });
 
   const optionsForBrand = props.brands.map((data) => {
-    return { value: data.name, label: data.name };
+    return { value: data.id, label: data.name };
   });
+
+  const brandCHangeHandler = (selectedOption) => {
+    localStorage.setItem("leptopBrandId", selectedOption.value);
+    localStorage.setItem("leptopBrand", selectedOption.label);
+    setBrandIsChoosen(true);
+  };
+  const cpuChanger = (selectedOption) => {
+    localStorage.setItem("cpu", selectedOption.value);
+    setCpuIsChoosen(true);
+  };
+
+  let brand = localStorage.getItem("leptopBrand");
+  let brandId = localStorage.getItem("leptopBrandId");
+  let cpu = localStorage.getItem("cpu");
+  useEffect(() => {
+    if (brand) setBrandIsChoosen(true);
+    if (cpu) setCpuIsChoosen(true);
+  }, []);
+
   return (
     <Fragment>
       <div className={classes.chooseImage}>
-        <span>ჩააგდე ან ატვირთე ლეპტოპის ფოტო</span>
-        <button>ატვირთე</button>
+        <ImageUpload onInput={handlerImageData} />
       </div>
       <div className={classes["leptopBrand_leptopName"]}>
         <div className={classes.inputDiv}>
@@ -93,13 +125,37 @@ function LeptopForm(props) {
           />
         </div>
         <div className={classes.brand}>
-          <Select placeholder="ლეპტოპის ბრენდი" options={optionsForBrand} />
+          {brand ? (
+            <Select
+              onChange={brandCHangeHandler}
+              defaultValue={{ value: brandId, label: brand }}
+              options={optionsForBrand}
+            />
+          ) : (
+            <Select
+              onChange={brandCHangeHandler}
+              placeholder="ლეპტოპის ბრენდი"
+              options={optionsForBrand}
+            />
+          )}
         </div>
       </div>
 
       <div className={classes.cpu}>
         <div className={classes.cpuSelector}>
-          <Select placeholder="CPU" options={optionsForCpu} />
+          {cpu ? (
+            <Select
+              onChange={cpuChanger}
+              defaultValue={{ value: cpu, label: cpu }}
+              options={optionsForCpu}
+            />
+          ) : (
+            <Select
+              onChange={cpuChanger}
+              placeholder="CPU"
+              options={optionsForCpu}
+            />
+          )}
         </div>
         <div className={classes.inputDivForCpu}>
           <Input
@@ -189,6 +245,7 @@ function LeptopForm(props) {
         <button
           disabled={!isFormValid}
           className={!isFormValid ? classes.disabled : classes.active}
+          onClick={reqeuestSendHandler}
         >
           დამატება
         </button>

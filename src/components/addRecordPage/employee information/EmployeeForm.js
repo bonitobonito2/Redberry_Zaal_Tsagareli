@@ -66,22 +66,27 @@ function EmployeeForm(props) {
   ]);
 
   const optionsForTeam = props.teams.map((value) => {
-    return { value: value.name, label: value.name };
+    return { value: value.id, label: value.name };
   });
   const optionsForPosition = props.positions.map((value) => {
-    return { value: value.name, label: value.name };
+    console.log(value);
+    return { value: value.value, label: value.name };
   });
   const teamChangeHandler = (selectedOption) => {
-    localStorage.setItem("team", selectedOption.value);
+    localStorage.setItem("teamID", selectedOption.value);
+    localStorage.setItem("team", selectedOption.label);
     setTeamisChoosen(true);
   };
   const positionChangeHandler = (selectedOption) => {
-    localStorage.setItem("position", selectedOption.value);
+    localStorage.setItem("positionID", selectedOption.value);
+    localStorage.setItem("position", selectedOption.label);
     setPositionisChoosen(true);
   };
 
   let selectedItem = localStorage.getItem("team");
+  let selectedItemId = localStorage.getItem('teamID')
   let selectedPosition = localStorage.getItem("position");
+  let selectedPositionId = localStorage.getItem('positionID')
   useEffect(() => {
     if (selectedItem) setTeamisChoosen(true);
     if (selectedPosition) setPositionisChoosen(true);
@@ -120,9 +125,8 @@ function EmployeeForm(props) {
         {selectedItem ? (
           <Select
             options={optionsForTeam}
-            // placeholder="თიმი"
             onChange={teamChangeHandler}
-            defaultValue={{ value: selectedItem, label: selectedItem }}
+            defaultValue={{ value: selectedItemId, label: selectedItem }}
           />
         ) : (
           <Select
@@ -139,7 +143,7 @@ function EmployeeForm(props) {
             options={optionsForPosition}
             placeholder="პოზიცია"
             onChange={positionChangeHandler}
-            defaultValue={{ value: selectedPosition, label: selectedPosition }}
+            defaultValue={{ value: selectedPositionId, label: selectedPosition }}
           />
         ) : (
           <Select
