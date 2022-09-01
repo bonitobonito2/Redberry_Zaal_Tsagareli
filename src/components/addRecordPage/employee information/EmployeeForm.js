@@ -7,6 +7,9 @@ function EmployeeForm(props) {
   const [formIsValid, setFormIsValid] = useState(false);
   const [taemIsChoosen, setTeamisChoosen] = useState(false);
   const [positionIsChoosen, setPositionisChoosen] = useState(false);
+  const [optionsForPositions, setOptionsForPositions] = useState();
+
+  const [teamId, setTeamId] = useState();
   const {
     inputValue: inputValueOfName,
     checkIfInputIsValid: nameCheker,
@@ -68,13 +71,11 @@ function EmployeeForm(props) {
   const optionsForTeam = props.teams.map((value) => {
     return { value: value.id, label: value.name };
   });
-  const optionsForPosition = props.positions.map((value) => {
-    console.log(value);
-    return { value: value.value, label: value.name };
-  });
+
   const teamChangeHandler = (selectedOption) => {
     localStorage.setItem("teamID", selectedOption.value);
     localStorage.setItem("team", selectedOption.label);
+    setTeamId(selectedOption.value);
     setTeamisChoosen(true);
   };
   const positionChangeHandler = (selectedOption) => {
@@ -84,13 +85,26 @@ function EmployeeForm(props) {
   };
 
   let selectedItem = localStorage.getItem("team");
-  let selectedItemId = localStorage.getItem('teamID')
+  let selectedItemId = localStorage.getItem("teamID");
   let selectedPosition = localStorage.getItem("position");
-  let selectedPositionId = localStorage.getItem('positionID')
+  let selectedPositionId = localStorage.getItem("positionID");
   useEffect(() => {
+    let optionsForPositionn;
+
+    if (taemIsChoosen) {
+      let filteredPositions = props.positions.filter(
+        (value) => value.team_id == selectedItemId
+      );
+
+      optionsForPositionn = filteredPositions.map((value) => {
+        return { value: value.id, label: value.name };
+      });
+      setOptionsForPositions(optionsForPositionn);
+    }
+
     if (selectedItem) setTeamisChoosen(true);
     if (selectedPosition) setPositionisChoosen(true);
-  }, []);
+  }, [teamId]);
 
   return (
     <Fragment>
@@ -138,20 +152,26 @@ function EmployeeForm(props) {
       </div>
 
       <div className={classes.team}>
-        {selectedPosition ? (
-          <Select
-            options={optionsForPosition}
-            placeholder="პოზიცია"
-            onChange={positionChangeHandler}
-            defaultValue={{ value: selectedPositionId, label: selectedPosition }}
-          />
-        ) : (
-          <Select
-            options={optionsForPosition}
-            placeholder="პოზიცია"
-            onChange={positionChangeHandler}
-          />
-        )}
+        <Fragment>
+          {console.log("akvar akdsaidjasda")}
+          {selectedPosition != null ? (
+            <Select
+              options={optionsForPositions}
+              placeholder="პოზიცია"
+              onChange={positionChangeHandler}
+              defaultValue={{
+                value: selectedPositionId,
+                label: selectedPosition,
+              }}
+            />
+          ) : (
+            <Select
+              options={optionsForPositions}
+              placeholder="პოზიცია"
+              onChange={positionChangeHandler}
+            />
+          )}
+        </Fragment>
       </div>
       <div className={classes.fullInput}>
         <div className={classes.inputDiv}>

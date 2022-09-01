@@ -1,30 +1,62 @@
-.image-upload.center {
+.chooseImage {
   width: 878px;
-  height: 300px;
+  height: 450px;
   background-color: #f6f6f6;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 120px;
   color: #62a1eb;
   border-radius: 8px;
 }
-
-.image-upload__preview {
-  width: 878px;
-  height: 300px;
-  background-color: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 120px;
-  color: #62a1eb;
+.chooseImage span {
+  max-width: 250px;
+  font-weight: 500;
+  font-size: 19px;
+}
+.chooseImage button {
+  background-color: #62a1eb;
+  padding: 10px 20px;
   border-radius: 8px;
+  color: white;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .img {
-  width: 38px;
-  height: 300px;
+  width: 878px;
+  height: 400px;
+}
+@media only screen and (max-width: 500px) {
+  .chooseImage {
+    width: 320px;
+    height: 250px;
+    background-color: #f6f6f6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #62a1eb;
+    border-radius: 8px;
+  }
+  .chooseImage span {
+    max-width: 250px;
+    font-weight: 500;
+    font-size: 19px;
+  }
+  .chooseImage button {
+    background-color: #62a1eb;
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .img {
+    width: 320px;
+    height: 250px;
+  }
 }

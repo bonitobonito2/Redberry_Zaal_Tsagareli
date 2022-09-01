@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import classes from './ImageUpload'
+import classes from './ImageUpload.module.css'
 
 function ImageUpload(props) {
   const filePickerRef = useRef();
@@ -45,12 +45,12 @@ function ImageUpload(props) {
         ref={filePickerRef}
         onChange={pickedHandler}
       />
-      <div className={classes[`image-upload ${props.center && "center"}`]}>
-        <div className={classes["image-upload__preview"]}>
-         {preview &&  <img style={{width : '878px', height : '450px'}} src={preview} alt="img" />}
+     
+       
+         {preview &&  <img className={classes.img} src={preview} alt="img" />}
          {!preview && <p>please pick an image.</p>}
-        </div>
-      </div>
+       
+     
 
       <button type="button" onClick={pickImageHandler}>
         pick image

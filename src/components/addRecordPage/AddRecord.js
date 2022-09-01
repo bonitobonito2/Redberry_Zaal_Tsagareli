@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useHttpHook from "../../Hooks/useHttpHook";
+import { useNavigate } from "react-router-dom";
 import classes from "./AddRecord.module.css";
 import logo from "../../images/LOGO-10 1.png";
 import LeptopForm from "./leptop information/LeptopForm";
+import backButton from "../../images/backButton.png";
 import EmployeeForm from "./employee information/EmployeeForm";
 function AddRecord() {
   const [sendRequest] = useHttpHook();
@@ -11,6 +13,11 @@ function AddRecord() {
   const [brands, setBrands] = useState();
   const [cpus, setCpus] = useState();
   const [positions, setPositions] = useState();
+  const navigate = useNavigate()
+
+  const backBtnClickHandler = () =>{
+    navigate('/',{replace : false})
+  }
   useEffect(() => {
     let configForTeam = {
       url: "https://pcfy.redberryinternship.ge/api/teams",
@@ -40,9 +47,14 @@ function AddRecord() {
     brands &&
     cpus && (
       <div className={classes.page}>
+        <div className={classes.back}>
+          <img src={backButton} onClick= {backBtnClickHandler} />
+        </div>
         <div className={classes.main}>
           <div className={classes.chooseForm}>
-            <div className={page === "employee" ? classes.active : classes.none}>
+            <div
+              className={page === "employee" ? classes.active : classes.none}
+            >
               <span>თანამშრომლის ინფო</span>
             </div>
             <div className={page === "leptop" ? classes.active : classes.none}>

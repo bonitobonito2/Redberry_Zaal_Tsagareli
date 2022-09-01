@@ -1,34 +1,55 @@
 import axios from "axios";
-
+import token from "../token/token";
+console.log(token,'xddddddddd')
 const request = async (dataa) => {
-  const result = await axios.post(
-    "https://pcfy.redberryinternship.ge/api/laptop/create",
-    dataa
-  );
+  const result = await axios.post('https://pcfy.redberryinternship.ge/api/laptop/create', dataa);
   const data = await result.data;
   console.log(await data);
 };
 
 function postRequestHandler(dataa) {
+  let name = localStorage.getItem("სახაელი:");
+  console.log(name,'name')
+  let surname = localStorage.getItem("გვარი:");
+  let teamId = localStorage.getItem("teamID");
+  let positionId = localStorage.getItem("positionID");
+  let phoneNumber = localStorage.getItem("ტელეფონის ნომერი:");
+  let email = localStorage.getItem("მეილი:");
+  let leptopName = localStorage.getItem("ლეპტოპის სახელი");
+  let leptopBrandID = localStorage.getItem("leptopBrandId");
+  let cpu = localStorage.getItem("cpu");
+  let cpuCores = localStorage.getItem("CPU-ს ბირთვი");
+  let cpuThreads = localStorage.getItem("CPU-ს ნაკადი");
+  let ram = localStorage.getItem("ლეპტოპის RAM (GB)");
+  let hardDriveType = localStorage.getItem("memoryType");
+  let leptopCondition = localStorage.getItem("leptopCondition");
+  let price = localStorage.getItem("ლეპტოპის ფასი, ₾");
+
+  if(leptopCondition === 'ახალი'){
+    leptopCondition = 'new'
+  }
+  if(leptopCondition === 'მეორადი'){
+    leptopCondition = 'used'
+  }
   const data = new FormData();
-  data.append("name", "ზაალი");
-  data.append("surname", "ზაალი");
-  data.append("team_id", 1);
-  data.append("position_id", 1);
-  data.append("phone_number", "+995555555555");
-  data.append("email", "gela.gelashvili@redberry.ge");
-  data.append("token", "df3cc1dcbd11dd46de68e1cc11841c8c");
-  data.append("laptop_name", "HP");
+  data.append("name", name);
+  data.append("surname", surname);
+  data.append("team_id", teamId);
+  data.append("position_id", positionId);
+  data.append("phone_number", phoneNumber);
+  data.append("email", email);
+  data.append("token", token);
+  data.append("laptop_name", leptopName);
   data.append("laptop_image", dataa.image);
-  data.append("laptop_brand_id", 1);
-  data.append("laptop_cpu", "Intel Core i3");
-  data.append("laptop_cpu_cores", 64);
-  data.append("laptop_cpu_threads", 128);
-  data.append("laptop_ram", 16);
-  data.append("laptop_hard_drive_type", "HDD");
-  data.append("laptop_hard_drive_type", "HDD");
-  data.append("laptop_state", "used");
-  data.append("laptop_price", 1500);
+  data.append("laptop_brand_id", leptopBrandID);
+  data.append("laptop_cpu", cpu);
+  data.append("laptop_cpu_cores", cpuCores);
+  data.append("laptop_cpu_threads", cpuThreads);
+  data.append("laptop_ram", ram);
+  data.append("laptop_hard_drive_type", hardDriveType);
+
+  data.append("laptop_state", leptopCondition);
+  data.append("laptop_price", price);
   request(data);
 }
 

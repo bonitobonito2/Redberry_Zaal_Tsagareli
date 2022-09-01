@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, memo, useEffect, useState } from "react";
 import ImageUpload from "../../UI/ImageUpload";
 import Select from "react-select";
 import postRequestHandler from "../../../helper/postRequestHandler";
@@ -11,7 +11,17 @@ function LeptopForm(props) {
   const [brandIsChoosen, setBrandIsChoosen] = useState(false);
   const [isImageSelected, setImageSelected] = useState(false);
   const [cpuIsChoosen, setCpuIsChoosen] = useState(false);
+  const [leptopCondition, setLeptopCondition] = useState();
+  const [memoryType, setMemoryType] = useState();
 
+  const leptopConditionHandler = (condition) => {
+    localStorage.setItem("leptopCondition", condition);
+    setLeptopCondition(condition);
+  };
+  const leptopMemoryHadnler = (memory) => {
+    localStorage.setItem("memoryType", memory);
+    setMemoryType(memory);
+  };
   const handlerImageData = (image, selected) => {
     setImageSelected(selected);
     setImage(image);
@@ -68,7 +78,12 @@ function LeptopForm(props) {
       RamIsValid &&
       CpuNakadiIsValid &&
       CpuBirviIsValid &&
-      leptopNameIsValid
+      leptopNameIsValid &&
+      brandIsChoosen &&
+      cpuIsChoosen &&
+      isImageSelected &&
+      memoryType &&
+      leptopCondition
     ) {
       if (inputValueOfCpuBirvi.length !== 0) setFormValid(true);
       else setFormValid(false);
@@ -79,6 +94,11 @@ function LeptopForm(props) {
     CpuNakadiIsValid,
     CpuBirviIsValid,
     leptopNameIsValid,
+    brandIsChoosen,
+    cpuIsChoosen,
+    isImageSelected,
+    memoryType,
+    leptopCondition,
   ]);
   const optionsForCpu = props.cpus.map((data) => {
     return { value: data.name, label: data.name };
@@ -102,15 +122,21 @@ function LeptopForm(props) {
   let brandId = localStorage.getItem("leptopBrandId");
   let cpu = localStorage.getItem("cpu");
   useEffect(() => {
+    let condition = localStorage.getItem("leptopCondition");
+    setLeptopCondition(condition);
+
+    let memoryType = localStorage.getItem("memoryType");
+
+    setMemoryType(memoryType);
+
     if (brand) setBrandIsChoosen(true);
     if (cpu) setCpuIsChoosen(true);
   }, []);
 
   return (
     <Fragment>
-      <div className={classes.chooseImage}>
-        <ImageUpload onInput={handlerImageData} />
-      </div>
+      <ImageUpload onInput={handlerImageData} />
+
       <div className={classes["leptopBrand_leptopName"]}>
         <div className={classes.inputDiv}>
           <Input
@@ -198,8 +224,22 @@ function LeptopForm(props) {
         <div className={classes.radios}>
           <span>მეხსიერების ტიპი</span>
           <div>
-            <input type="radio" value="SSD" name="SSD" /> Male
-            <input type="radio" value="HDD" name="HDD" /> Male
+            <input
+              onChange={() => leptopMemoryHadnler("SSD")}
+              checked={memoryType === "SSD"}
+              type="radio"
+              value="SSD"
+              name="SSD"
+            />{" "}
+            SSD
+            <input
+              onChange={() => leptopMemoryHadnler("HDD")}
+              checked={memoryType === "HDD"}
+              type="radio"
+              value="HDD"
+              name="HDD"
+            />{" "}
+            HDD
           </div>
         </div>
       </div>
@@ -227,10 +267,24 @@ function LeptopForm(props) {
       </div>
       <div>
         <div className={classes.leptopCondition}>
-          <span>მეხსიერების ტიპი</span>
+          <span>მეხსიერების მდგომარეობა</span>
           <div>
-            <input type="radio" value="SSD" name="SSD" /> Male
-            <input type="radio" value="HDD" name="HDD" /> Male
+            <input
+              onChange={() => leptopConditionHandler("ახალი")}
+              checked={leptopCondition === "ახალი"}
+              type="radio"
+              value="ახალი"
+              name="ახალი"
+            />{" "}
+            ახალი
+            <input
+              onChange={() => leptopConditionHandler("მეორადი")}
+              checked={leptopCondition === "მეორადი"}
+              type="radio"
+              value="მეორადი"
+              name="მეორადი"
+            />{" "}
+            მეორადი
           </div>
         </div>
       </div>

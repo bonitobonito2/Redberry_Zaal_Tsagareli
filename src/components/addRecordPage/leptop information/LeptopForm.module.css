@@ -1,4 +1,4 @@
-.chooseImage {
+/* .chooseImage {
   width: 878px;
   height: 500px;
   background-color: #f6f6f6;
@@ -9,8 +9,8 @@
   gap: 120px;
   color: #62a1eb;
   border-radius: 8px;
-}
-.chooseImage span {
+} */
+/* .chooseImage span {
   max-width: 250px;
   font-weight: 500;
   font-size: 19px;
@@ -23,7 +23,7 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
-}
+} */
 .leptopBrand_leptopName {
   width: 878px;
   display: flex;
