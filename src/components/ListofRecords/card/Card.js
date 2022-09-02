@@ -16,7 +16,7 @@ function Card(props) {
           {props.data.user.name} {props.data.user.surname}
         </span>
         <br/>
-        <Link to="/">მეტის ნახვა</Link>
+        <Link to={`${props.data.laptop.id}`}>მეტის ნახვა</Link>
       </div>
     </div>
   );

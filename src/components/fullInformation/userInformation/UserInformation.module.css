@@ -1,0 +1,32 @@
+.userInformation {
+  display: flex;
+  width: 50%;
+  border-bottom: 1px solid gray;
+}
+
+.laptopPic {
+  width: 50%;
+}
+.laptopPic img {
+  width: 80%;
+  height: 230px;
+}
+.userInformationDetails {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.detail {
+ display: flex;
+  flex-direction: row;
+  width: 60%;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.key {
+  padding-right: 100px;
+  font-weight: 500;
+  font-size: 18px;
+}
