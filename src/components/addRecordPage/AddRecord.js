@@ -17,12 +17,9 @@ function AddRecord() {
   const navigate = useNavigate();
 
   const backBtnClickHandler = () => {
-    console.log("clicked");
     navigate("/", { replace: false });
   };
-  const idk = () => {
-    navigate("/", { replace: false });
-  };
+
   useEffect(() => {
     let configForTeam = {
       url: "https://pcfy.redberryinternship.ge/api/teams",
