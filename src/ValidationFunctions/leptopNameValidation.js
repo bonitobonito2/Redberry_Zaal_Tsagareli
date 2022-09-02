@@ -1,7 +1,9 @@
 function leptopNameValidation(inputText) {
-    if(inputText.length > 3){
-        return true
-    }
-    return false
+  let validation = /^[a-zA-Z0-9!@#$%^&*()_+=]*$/;
+  if (validation.test(inputText)) {
+    return true;
+  }
+
+  return false;
 }
-export default leptopNameValidation
+export default leptopNameValidation;

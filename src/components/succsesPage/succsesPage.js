@@ -8,13 +8,17 @@ function SuccsesPage() {
     navigate("/", { replace: true });
   };
   const handler = () => {
-    alert("ჯერ არ დამატებულა სია");
+    navigate("/records", { replace: true });
   };
   return (
     <div className={classes.succses}>
       <div className={classes.succsesInformation}>
         <img className={classes.img} src={succsesImage} />
         <span>ჩანაწერი დამატებულია!</span>
+        <br />
+
+      </div>
+      <div className={classes.buttons} >
         <button onClick={handler} className={classes.btn1}>
           სიაში გადაყვანა
         </button>

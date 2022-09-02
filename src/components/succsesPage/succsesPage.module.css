@@ -7,6 +7,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .succsesInformation {
@@ -17,7 +19,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 5px;
 }
 .succsesInformation span {
   font-weight: 550;
@@ -38,15 +40,72 @@
   border-radius: 5px;
   color: #ffffff;
   cursor: pointer;
-  
 }
 
-.btn2{
+.btn2 {
+  height: 55px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  background-color: white;
+  color: #62a1eb;
+  border: none;
+}
+.buttons{
+  background-color: white;
+  width: 35%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media only screen and (max-width: 500px) {
+  .succses {
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+  }
+
+  .succsesInformation {
+    width: 100%;
+
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .succsesInformation span {
+    font-weight: 550;
+    font-size: 20px;
+  }
+
+  .img {
+    width: 200px;
+    height: 250.21px;
+  }
+
+  .btn1 {
+    width: 300px;
     height: 55px;
-    cursor: pointer;
     font-weight: 500;
     font-size: 20px;
-    background-color: white;
-    color:  #62a1eb;
+    background-color: #62a1eb;
+
     border: none;
+    border-radius: 5px;
+    color: #ffffff;
+    cursor: pointer;
+  }
 }
