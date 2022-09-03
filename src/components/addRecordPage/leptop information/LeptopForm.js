@@ -28,16 +28,19 @@ function LeptopForm(props) {
     setImageSelected(selected);
     setImage(image);
   };
-  const reqeuestSendHandler = () => {
-    const send = postRequestHandler({ image: image });
-    console.log(send);
-    if (send) {
-      localStorage.clear()
-      navigate("/succses", { replace: true });}
+  const reqeuestSendHandler = async () => {
+    try {
+      const send = await postRequestHandler({ image: image });
+      localStorage.clear();
+      navigate("/succses", { replace: true });
+      return 0;
+    } catch {
+      localStorage.setItem("positionError", true);
+      props.setPage("employee");
+    }
   };
   useEffect(() => {
-    // 👇️ scroll to top on page load
-    window.scrollTo({top: 0, left: 0});
+    window.scrollTo({ top: 0, left: 0 });
   }, []);
   const {
     inputValue: inputValueOfleptopName,

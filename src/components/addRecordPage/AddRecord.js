@@ -75,7 +75,7 @@ function AddRecord() {
               />
             )}
             {page === "leptop" && (
-              <LeptopForm brands={brands} cpus={cpus} changePage={setPage} />
+              <LeptopForm setPage = {setPage} brands={brands} cpus={cpus} changePage={setPage} />
             )}
           </div>
           <div>

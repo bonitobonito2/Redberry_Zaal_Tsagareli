@@ -8,7 +8,18 @@ function EmployeeForm(props) {
   const [taemIsChoosen, setTeamisChoosen] = useState(false);
   const [positionIsChoosen, setPositionisChoosen] = useState(false);
   const [optionsForPositions, setOptionsForPositions] = useState();
-
+  const [positionError, setPositionError] = useState(
+    localStorage.getItem("positionError")
+  );
+  const [selectedPosition, setSelectedPosition] = useState(
+    localStorage.getItem("position")
+  );
+  const style = {
+    control: base => ({
+      ...base,
+      border: "1px solid red",
+    }),
+  };
   const [teamId, setTeamId] = useState();
   const {
     inputValue: inputValueOfName,
@@ -81,29 +92,40 @@ function EmployeeForm(props) {
   const positionChangeHandler = (selectedOption) => {
     localStorage.setItem("positionID", selectedOption.value);
     localStorage.setItem("position", selectedOption.label);
+    localStorage.setItem("positionError", false);
+    setPositionError(false);
     setPositionisChoosen(true);
   };
 
   let selectedItem = localStorage.getItem("team");
   let selectedItemId = localStorage.getItem("teamID");
-  let selectedPosition = localStorage.getItem("position");
+
   let selectedPositionId = localStorage.getItem("positionID");
   useEffect(() => {
     let optionsForPositionn;
+    let selectedPositionTeamId;
 
-    if (taemIsChoosen) {
-      let filteredPositions = props.positions.filter(
-        (value) => value.team_id == selectedItemId
-      );
+    let filteredPositions = props.positions.filter((value) => {
+      if (value.team_id == selectedItemId) {
+        selectedPositionTeamId = value.team_id;
+        return value;
+      }
+    });
 
-      optionsForPositionn = filteredPositions.map((value) => {
-        return { value: value.id, label: value.name };
-      });
-      setOptionsForPositions(optionsForPositionn);
-    }
+    optionsForPositionn = filteredPositions.map((value) => {
+      return { value: value.id, label: value.name };
+    });
+    setOptionsForPositions(optionsForPositionn);
 
     if (selectedItem) setTeamisChoosen(true);
     if (selectedPosition) setPositionisChoosen(true);
+
+    // if(selectedPosition.value !== selectedItemId){
+    //   setSelectedPosition(null)
+    // }
+    if (selectedPositionTeamId == selectedItemId) {
+      setSelectedPosition([]);
+    }
   }, [teamId]);
 
   return (
@@ -153,8 +175,7 @@ function EmployeeForm(props) {
 
       <div className={classes.team}>
         <Fragment>
-          {console.log("akvar akdsaidjasda")}
-          {selectedPosition != null ? (
+          {selectedPosition && positionError === "false" ? (
             <Select
               options={optionsForPositions}
               placeholder="პოზიცია"
@@ -169,6 +190,7 @@ function EmployeeForm(props) {
               options={optionsForPositions}
               placeholder="პოზიცია"
               onChange={positionChangeHandler}
+              styles={positionError==='true' && style}
             />
           )}
         </Fragment>

@@ -1,15 +1,20 @@
 import axios from "axios";
 import token from "../token/token";
-console.log(token,'xddddddddd')
+
 const request = async (dataa) => {
-  const result = await axios.post('https://pcfy.redberryinternship.ge/api/laptop/create', dataa);
+  const result = await axios.post(
+    "https://pcfy.redberryinternship.ge/api/laptop/create",
+    dataa
+  );
   const data = await result.data;
-  if(await data) return true
+  
+  if (await data.message === "Information recorded") return true;
+  return false;
 };
 
-function postRequestHandler(dataa) {
+ async function  postRequestHandler(dataa) {
   let name = localStorage.getItem("სახაელი:");
-  console.log(name,'name')
+
   let surname = localStorage.getItem("გვარი:");
   let teamId = localStorage.getItem("teamID");
   let positionId = localStorage.getItem("positionID");
@@ -25,11 +30,11 @@ function postRequestHandler(dataa) {
   let leptopCondition = localStorage.getItem("leptopCondition");
   let price = localStorage.getItem("ლეპტოპის ფასი, ₾");
 
-  if(leptopCondition === 'ახალი'){
-    leptopCondition = 'new'
+  if (leptopCondition === "ახალი") {
+    leptopCondition = "new";
   }
-  if(leptopCondition === 'მეორადი'){
-    leptopCondition = 'used'
+  if (leptopCondition === "მეორადი") {
+    leptopCondition = "used";
   }
   const data = new FormData();
   data.append("name", name);
@@ -50,8 +55,9 @@ function postRequestHandler(dataa) {
 
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
-  const save = request(data);
-  if(save) return true
+  const save = await request(data);
+  if ( save ) return true;
+  return false
 }
 
 export default postRequestHandler;

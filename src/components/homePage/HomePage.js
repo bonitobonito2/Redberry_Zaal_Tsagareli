@@ -7,6 +7,7 @@ import reddarbieLogo from '../../images/redberryLogo.png'
 function HomePage() {
   useEffect(()=>{
     localStorage.clear()
+    localStorage.setItem('positionError',false)
   },[])
   return (
     <div className={classes.mainPage}>
