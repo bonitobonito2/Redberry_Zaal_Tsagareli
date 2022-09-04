@@ -1,20 +1,9 @@
 import axios from "axios";
 import token from "../token/token";
 
-const request = async (dataa) => {
-  const result = await axios.post(
-    "https://pcfy.redberryinternship.ge/api/laptop/create",
-    dataa
-  );
-  const data = await result.data;
 
-  if ((await data.message) === "Information recorded") return true;
-  return false;
-};
-
-async function postRequestHandler(dataa) {
-  
-  let name = localStorage.getItem("სახაელი:");
+ function postRequestHandler(dataa,callBack) {
+  let name = localStorage.getItem("სახელი:");
   let surname = localStorage.getItem("გვარი:");
   let teamId = localStorage.getItem("teamID");
   let positionId = localStorage.getItem("positionID");
@@ -62,9 +51,21 @@ async function postRequestHandler(dataa) {
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
 
-  const save = await request(data);
-  if (save) return true;
-  return false;
+  console.log("akvar bliad");
+  console.log(name, "saxeli");
+  let succses;
+  axios
+    .post("https://pcfy.redberryinternship.ge/api/laptop/create", data)
+    .then((data) => {
+      console.log(data.data);
+      callBack(data,false)
+      
+    })
+    .catch((error) => {
+     callBack(error,true)
+    });
+
+    return succses
 }
 
 export default postRequestHandler;

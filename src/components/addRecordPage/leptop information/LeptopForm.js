@@ -101,16 +101,21 @@ function LeptopForm(props) {
     setImageSelected(selected);
     setImage(image);
   };
-  const reqeuestSendHandler = async () => {
-    try {
-      const send = await postRequestHandler({ image: image });
-      localStorage.clear();
-      navigate("/succses", { replace: true });
-      return 0;
-    } catch {
-      localStorage.setItem("positionError", true);
-      props.setPage("employee");
-    }
+  const reqeuestSendHandler = () => {
+    postRequestHandler({ image: image }, (data, error) => {
+      if (error) {
+        console.log(error)
+        console.log(data)
+        localStorage.setItem("positionError", true);
+        props.setPage("employee");
+      }
+      if (!error) {
+        console.log(data)
+        localStorage.clear();
+        navigate("/succses", { replace: true });
+        return 0;
+      }
+    });
   };
 
   const optionsForCpu = props.cpus.map((data) => {
