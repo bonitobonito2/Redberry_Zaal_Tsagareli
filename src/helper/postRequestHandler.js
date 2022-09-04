@@ -47,7 +47,6 @@ import token from "../token/token";
   data.append("laptop_cpu_threads", cpuThreads);
   data.append("laptop_ram", ram);
   data.append("laptop_hard_drive_type", hardDriveType);
-
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
 
@@ -59,7 +58,6 @@ import token from "../token/token";
     .then((data) => {
       console.log(data.data);
       callBack(data,false)
-      
     })
     .catch((error) => {
      callBack(error,true)

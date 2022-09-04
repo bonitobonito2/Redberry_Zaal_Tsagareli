@@ -2,7 +2,6 @@ import React from "react";
 import classes from "./Card.module.css";
 import { Link } from "react-router-dom";
 function Card(props) {
-  console.log(props);
   return (
     <div className={classes.card}>
       <div className={classes.image}>
@@ -15,7 +14,7 @@ function Card(props) {
         <span>
           {props.data.user.name} {props.data.user.surname}
         </span>
-        <br/>
+        <br />
         <Link to={`${props.data.laptop.id}`}>მეტის ნახვა</Link>
       </div>
     </div>
