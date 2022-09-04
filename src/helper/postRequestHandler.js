@@ -1,8 +1,7 @@
 import axios from "axios";
 import token from "../token/token";
 
-
- function postRequestHandler(dataa,callBack) {
+function postRequestHandler(dataa, callBack) {
   let name = localStorage.getItem("სახელი:");
   let surname = localStorage.getItem("გვარი:");
   let teamId = localStorage.getItem("teamID");
@@ -50,20 +49,14 @@ import token from "../token/token";
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
 
-  console.log("akvar bliad");
-  console.log(name, "saxeli");
-  let succses;
   axios
     .post("https://pcfy.redberryinternship.ge/api/laptop/create", data)
     .then((data) => {
-      console.log(data.data);
-      callBack(data,false)
+      callBack(data, false);
     })
     .catch((error) => {
-     callBack(error,true)
+      callBack(error, true);
     });
-
-    return succses
 }
 
 export default postRequestHandler;
