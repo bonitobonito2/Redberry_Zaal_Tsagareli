@@ -9,7 +9,6 @@ function ImageUpload(props) {
   const pickImageHandler = () => {
     filePickerRef.current.click();
   };
-
   useEffect(() => {
     if (!file) {
       return;

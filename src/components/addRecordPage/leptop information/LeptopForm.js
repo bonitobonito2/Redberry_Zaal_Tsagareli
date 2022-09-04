@@ -17,29 +17,6 @@ function LeptopForm(props) {
   const [leptopCondition, setLeptopCondition] = useState();
   const [memoryType, setMemoryType] = useState();
 
-  const leptopConditionHandler = (condition) => {
-    localStorage.setItem("leptopCondition", condition);
-    setLeptopCondition(condition);
-  };
-  const leptopMemoryHadnler = (memory) => {
-    localStorage.setItem("memoryType", memory);
-    setMemoryType(memory);
-  };
-  const handlerImageData = (image, selected) => {
-    setImageSelected(selected);
-    setImage(image);
-  };
-  const reqeuestSendHandler = async () => {
-    try {
-      const send = await postRequestHandler({ image: image });
-      localStorage.clear();
-      navigate("/succses", { replace: true });
-      return 0;
-    } catch {
-      localStorage.setItem("positionError", true);
-      props.setPage("employee");
-    }
-  };
   const {
     inputValue: inputValueOfleptopName,
     checkIfInputIsValid: leptopNameCheker,
@@ -111,6 +88,31 @@ function LeptopForm(props) {
     memoryType,
     leptopCondition,
   ]);
+
+  const leptopConditionHandler = (condition) => {
+    localStorage.setItem("leptopCondition", condition);
+    setLeptopCondition(condition);
+  };
+  const leptopMemoryHadnler = (memory) => {
+    localStorage.setItem("memoryType", memory);
+    setMemoryType(memory);
+  };
+  const handlerImageData = (image, selected) => {
+    setImageSelected(selected);
+    setImage(image);
+  };
+  const reqeuestSendHandler = async () => {
+    try {
+      const send = await postRequestHandler({ image: image });
+      localStorage.clear();
+      navigate("/succses", { replace: true });
+      return 0;
+    } catch {
+      localStorage.setItem("positionError", true);
+      props.setPage("employee");
+    }
+  };
+
   const optionsForCpu = props.cpus.map((data) => {
     return { value: data.name, label: data.name };
   });
