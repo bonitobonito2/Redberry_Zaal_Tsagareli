@@ -1,4 +1,4 @@
-import React, { Fragment, memo, useEffect, useState } from "react";
+import React, { Fragment, memo, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ImageUpload from "../../UI/ImageUpload";
 import Select from "react-select";
@@ -7,6 +7,7 @@ import UseValidation from "../../../Hooks/useValidation";
 import classes from "./LeptopForm.module.css";
 import Input from "../../UI/Input";
 function LeptopForm(props) {
+  const date = useRef();
   const navigate = useNavigate();
   const [isFormValid, setFormValid] = useState(false);
   const [image, setImage] = useState();
@@ -39,9 +40,6 @@ function LeptopForm(props) {
       props.setPage("employee");
     }
   };
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
-  }, []);
   const {
     inputValue: inputValueOfleptopName,
     checkIfInputIsValid: leptopNameCheker,
@@ -134,12 +132,13 @@ function LeptopForm(props) {
   let brand = localStorage.getItem("leptopBrand");
   let brandId = localStorage.getItem("leptopBrandId");
   let cpu = localStorage.getItem("cpu");
-  useEffect(() => {
-    let condition = localStorage.getItem("leptopCondition");
-    setLeptopCondition(condition);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0 });
+    let condition = localStorage.getItem("leptopCondition");
     let memoryType = localStorage.getItem("memoryType");
 
+    setLeptopCondition(condition);
     setMemoryType(memoryType);
 
     if (brand) setBrandIsChoosen(true);
@@ -260,8 +259,11 @@ function LeptopForm(props) {
       <div className={classes.leptopPersonalInformation}>
         <div className={classes.inputDiv}>
           <Input
+            type="date"
+            value={date}
             name="შეძენის რიცხვი (არჩევითი)"
             placeholder="დდ / თთ / წწწწ"
+            required={false}
           />
         </div>
         <div className={classes.inputDiv}>

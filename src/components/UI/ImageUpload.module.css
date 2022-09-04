@@ -23,13 +23,14 @@
   font-size: 20px;
   cursor: pointer;
   position: relative;
-  top: 20px;
+  top: 30px;
 }
 
 .img {
   width: 878px;
   height: 100%;
   position: relative;
+
     top: 10px;
 
 }

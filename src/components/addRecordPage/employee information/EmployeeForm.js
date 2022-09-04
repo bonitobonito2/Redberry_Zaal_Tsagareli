@@ -6,7 +6,7 @@ import classes from "./EmployeeForm.module.css";
 import Input from "../../UI/Input";
 import UseValidation from "../../../Hooks/useValidation";
 function EmployeeForm(props) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [formIsValid, setFormIsValid] = useState(false);
   const [taemIsChoosen, setTeamisChoosen] = useState(false);
   const [positionIsChoosen, setPositionisChoosen] = useState(false);
@@ -18,7 +18,7 @@ function EmployeeForm(props) {
     localStorage.getItem("position")
   );
   const style = {
-    control: base => ({
+    control: (base) => ({
       ...base,
       border: "1px solid red",
     }),
@@ -70,10 +70,10 @@ function EmployeeForm(props) {
       taemIsChoosen
     ) {
       setFormIsValid(true);
-      dispatch(formActions.setFormIsValid(true))
+      dispatch(formActions.setFormIsValid(true));
     } else {
       setFormIsValid(false);
-      dispatch(formActions.setFormIsValid(false))
+      dispatch(formActions.setFormIsValid(false));
     }
   }, [
     positionIsChoosen,
@@ -124,13 +124,7 @@ function EmployeeForm(props) {
 
     if (selectedItem) setTeamisChoosen(true);
     if (selectedPosition) setPositionisChoosen(true);
-
-    // if(selectedPosition.value !== selectedItemId){
-    //   setSelectedPosition(null)
-    // }
-    if (selectedPositionTeamId == selectedItemId) {
-      setSelectedPosition([]);
-    }
+    if (selectedPositionTeamId == selectedItemId) setSelectedPosition([]);
   }, [teamId]);
 
   return (
@@ -195,7 +189,7 @@ function EmployeeForm(props) {
               options={optionsForPositions}
               placeholder="პოზიცია"
               onChange={positionChangeHandler}
-              styles={positionError==='true' && style}
+              styles={positionError === "true" && style}
             />
           )}
         </Fragment>

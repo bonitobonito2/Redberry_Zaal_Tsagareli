@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import classes from './ImageUpload.module.css'
+import classes from "./ImageUpload.module.css";
 
 function ImageUpload(props) {
   const filePickerRef = useRef();
@@ -33,10 +33,10 @@ function ImageUpload(props) {
       setValid(false);
       isValid = false;
     }
-    props.onInput( pickedFile, isValid);
+    props.onInput(pickedFile, isValid);
   };
   return (
-    <div className={classes['chooseImage']}>
+    <div className={classes["chooseImage"]}>
       <input
         id={props.id}
         style={{ display: "none" }}
@@ -45,12 +45,9 @@ function ImageUpload(props) {
         ref={filePickerRef}
         onChange={pickedHandler}
       />
-     
-       
-         {preview &&  <img className={classes.img} src={preview} alt="img" />}
-         {!preview && <p>please pick an image.</p>}
-       
-     
+
+      {preview && <img className={classes.img} src={preview} alt="img" />}
+      {!preview && <p>please pick an image.</p>}
 
       <button type="button" onClick={pickImageHandler}>
         pick image

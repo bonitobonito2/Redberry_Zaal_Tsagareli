@@ -7,14 +7,14 @@ const request = async (dataa) => {
     dataa
   );
   const data = await result.data;
-  
-  if (await data.message === "Information recorded") return true;
+
+  if ((await data.message) === "Information recorded") return true;
   return false;
 };
 
- async function  postRequestHandler(dataa) {
+async function postRequestHandler(dataa) {
+  
   let name = localStorage.getItem("სახაელი:");
-
   let surname = localStorage.getItem("გვარი:");
   let teamId = localStorage.getItem("teamID");
   let positionId = localStorage.getItem("positionID");
@@ -30,13 +30,19 @@ const request = async (dataa) => {
   let leptopCondition = localStorage.getItem("leptopCondition");
   let price = localStorage.getItem("ლეპტოპის ფასი, ₾");
 
+  let date = localStorage.getItem("შეძენის რიცხვი (არჩევითი)");
+
   if (leptopCondition === "ახალი") {
     leptopCondition = "new";
   }
   if (leptopCondition === "მეორადი") {
     leptopCondition = "used";
   }
+
   const data = new FormData();
+  if (date) {
+    data.append("laptop_purchase_date", date);
+  }
   data.append("name", name);
   data.append("surname", surname);
   data.append("team_id", teamId);
@@ -55,9 +61,10 @@ const request = async (dataa) => {
 
   data.append("laptop_state", leptopCondition);
   data.append("laptop_price", price);
+
   const save = await request(data);
-  if ( save ) return true;
-  return false
+  if (save) return true;
+  return false;
 }
 
 export default postRequestHandler;
