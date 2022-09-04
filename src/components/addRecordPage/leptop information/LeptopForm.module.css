@@ -1,29 +1,4 @@
-/* .chooseImage {
-  width: 878px;
-  height: 500px;
-  background-color: #f6f6f6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 120px;
-  color: #62a1eb;
-  border-radius: 8px;
-} */
-/* .chooseImage span {
-  max-width: 250px;
-  font-weight: 500;
-  font-size: 19px;
-}
-.chooseImage button {
-  background-color: #62a1eb;
-  padding: 10px 20px;
-  border-radius: 8px;
-  color: white;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-} */
+
 .leptopBrand_leptopName {
   width: 878px;
   display: flex;
@@ -165,6 +140,7 @@
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    gap: 25px;
   }
   .cpuSelector {
     width: 100%;
