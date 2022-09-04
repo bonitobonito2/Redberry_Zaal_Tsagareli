@@ -104,13 +104,10 @@ function LeptopForm(props) {
   const reqeuestSendHandler = () => {
     postRequestHandler({ image: image }, (data, error) => {
       if (error) {
-        console.log(error)
-        console.log(data)
         localStorage.setItem("positionError", true);
         props.setPage("employee");
       }
       if (!error) {
-        console.log(data)
         localStorage.clear();
         navigate("/succses", { replace: true });
         return 0;

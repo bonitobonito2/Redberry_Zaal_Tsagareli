@@ -194,7 +194,7 @@ function EmployeeForm(props) {
           )}
         </Fragment>
       </div>
-      <div className={classes.fullInput}>
+      
         <div className={classes.inputDiv}>
           <Input
             type="email"
@@ -208,9 +208,9 @@ function EmployeeForm(props) {
             requirments="   უნდა მთავრდებოდეს @redberry.ge-ით"
           />
         </div>
-      </div>
+     
 
-      <div className={classes.fullInput}>
+      
         <div className={classes.inputDiv}>
           <Input
             isValid={numberIsValid}
@@ -225,7 +225,7 @@ function EmployeeForm(props) {
             requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           />
         </div>
-      </div>
+     
       <div className={classes.actions}>
         <button
           disabled={!formIsValid}

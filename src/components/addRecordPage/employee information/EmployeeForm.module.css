@@ -13,13 +13,6 @@
   gap: 1px;
 }
 
-/* .nameDiv input {
-  width: 100%;
-  border-radius: 3px;
-  border: 2px solid rgb(138, 190, 225);
-  height: 40px;
-} */
-
 .team {
   width: 878px;
 }
@@ -37,15 +30,9 @@
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  width: 100%;
+  width: 878px;
 }
 
-/* .inputDiv input {
-  width: 100%;
-  border-radius: 3px;
-  border: 2px solid rgb(138, 190, 225);
-  height: 40px;
-} */
 .actions {
   display: flex;
   align-items: flex-end;
@@ -59,6 +46,7 @@
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    gap: 20px;
   }
 
   .nameDiv {
@@ -69,7 +57,13 @@
     width: 100%;
     gap: 1px;
   }
-
+  .inputDiv {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 320px;
+  }
   .team {
     width: 320px;
   }
