@@ -46,10 +46,11 @@ function ImageUpload(props) {
       />
 
       {preview && <img className={classes.img} src={preview} alt="img" />}
-      {!preview && <p>please pick an image.</p>}
+      {!preview && <p>ჩააგდე ან ატვირთე ლეპტოპის ფოტო</p>}
 
       <button type="button" onClick={pickImageHandler}>
-        pick image
+        {!preview ?     'ატვირთე': 'ჩააგდე თავიდან'}
+  
       </button>
     </div>
   );

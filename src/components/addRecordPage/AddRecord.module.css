@@ -63,9 +63,23 @@
 .backForPhone {
   visibility: hidden;
 }
+
+.half{
+  visibility: hidden;
+}
 @media only screen and (max-width: 500px) {
   .none{
     display: none;
+  }
+  .half{
+    visibility: visible;
+  }
+  .active {
+    padding: 20px;
+    width: fit-content;
+    border: none;
+    display: flex;
+    flex-direction: column;
   }
   .backForPhone {
     position: absolute;
@@ -100,7 +114,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 25px;
+    flex-direction: column;
+    position: relative;
+    top: 20px;
   }
   
   .chooseForm span {

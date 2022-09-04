@@ -8,6 +8,7 @@
   justify-content: center;
   color: #62a1eb;
   border-radius: 8px;
+  border: 1px dashed #62a1eb;
 }
 .chooseImage span {
   max-width: 250px;
@@ -31,8 +32,7 @@
   height: 100%;
   position: relative;
 
-    top: 10px;
-
+  top: 10px;
 }
 @media only screen and (max-width: 500px) {
   .chooseImage {
@@ -45,6 +45,7 @@
     justify-content: center;
     color: #62a1eb;
     border-radius: 8px;
+    border: 1px dashed #62a1eb;
   }
   .chooseImage span {
     max-width: 250px;
@@ -57,11 +58,10 @@
     border-radius: 8px;
     color: white;
     border: none;
-    font-size: 18px;
+    font-size: 16px;
     cursor: pointer;
     position: relative;
-    top: 30px;
-   
+    top: 35px;
   }
 
   .img {
