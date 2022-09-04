@@ -282,7 +282,7 @@ function LeptopForm(props) {
       </div>
       <div>
         <div className={classes.leptopCondition}>
-          <span>მეხსიერების მდგომარეობა</span>
+          <span>ლეპტოპის მდგომარეობა</span>
           <div>
             <input
               onChange={() => leptopConditionHandler("ახალი")}

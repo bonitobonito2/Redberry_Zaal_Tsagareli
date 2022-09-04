@@ -138,8 +138,8 @@ function EmployeeForm(props) {
             errorText={nameError}
             value={inputValueOfName}
             nameChaker={nameCheker}
-            name="სახაელი:"
-            requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
+            name="სახელი:"
+            requirments="მინიმუმ 2 სიმბოლო, ქართული ასოები"
           />
         </div>
         <div className={classes.nameDiv}>
@@ -151,7 +151,7 @@ function EmployeeForm(props) {
             value={inputValueOflastName}
             nameChaker={lastNameCheker}
             name="გვარი:"
-            requirments="   მინიმუმ 2 სიმბოლო, ქართული ასოები"
+            requirments="მინიმუმ 2 სიმბოლო, ქართული ასოები"
           />
         </div>
       </div>
