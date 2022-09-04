@@ -13,7 +13,7 @@ function nameValidation(inputText) {
   }
 
   if (language === "Georgian") {
-    if (text.length > 2) {
+    if (text.length > 1) {
       return true;
     } else {
       return false;

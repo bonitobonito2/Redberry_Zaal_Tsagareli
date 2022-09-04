@@ -3,6 +3,7 @@ import useHttpHook from "../../Hooks/useHttpHook";
 import { useNavigate } from "react-router-dom";
 import classes from "./AddRecord.module.css";
 import logo from "../../images/LOGO-10 1.png";
+import { useSelector } from "react-redux";
 import LeptopForm from "./leptop information/LeptopForm";
 import backButton from "../../images/backButton.png";
 import backButtonForPhone from "../../images/backButtonForPHone.png";
@@ -15,9 +16,24 @@ function AddRecord() {
   const [cpus, setCpus] = useState();
   const [positions, setPositions] = useState();
   const navigate = useNavigate();
+  const formIsValid = useSelector((data) => data.formISValidSlice.formIsValid);
 
+  const nextPageClickHandler = () => {
+    if (formIsValid) {
+      setPage("leptop");
+    } else {
+      alert("შეავსეთ ფორმა, ერორების გარეშე, მოთხოვნები მითითებულია.");
+    }
+  };
+  const backPageClickHandler = () => {
+    setPage("employee");
+  };
   const backBtnClickHandler = () => {
-    navigate("/", { replace: false });
+    if (page === "leptop") {
+      setPage("employee");
+    } else {
+      navigate("/", { replace: false });
+    }
   };
 
   useEffect(() => {
@@ -52,17 +68,21 @@ function AddRecord() {
         <div className={classes.back}>
           <img src={backButton} onClick={backBtnClickHandler} />
         </div>
-        <button onClick={backBtnClickHandler} className={classes.backForPhone}>
+        <div onClick={backBtnClickHandler} className={classes.backForPhone}>
           <img src={backButtonForPhone} onClick={backBtnClickHandler} />
-        </button>
+        </div>
         <div className={classes.main}>
           <div className={classes.chooseForm}>
             <div
+              onClick={backPageClickHandler}
               className={page === "employee" ? classes.active : classes.none}
             >
               <span>თანამშრომლის ინფო</span>
             </div>
-            <div className={page === "leptop" ? classes.active : classes.none}>
+            <div
+              onClick={nextPageClickHandler}
+              className={page === "leptop" ? classes.active : classes.none}
+            >
               <span>ლეპტოპის მახასიათებლები</span>
             </div>
           </div>
@@ -75,7 +95,12 @@ function AddRecord() {
               />
             )}
             {page === "leptop" && (
-              <LeptopForm setPage = {setPage} brands={brands} cpus={cpus} changePage={setPage} />
+              <LeptopForm
+                setPage={setPage}
+                brands={brands}
+                cpus={cpus}
+                changePage={setPage}
+              />
             )}
           </div>
           <div>

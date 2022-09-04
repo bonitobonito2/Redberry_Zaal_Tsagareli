@@ -50,11 +50,23 @@
   padding: 20px;
   width: fit-content;
 }
-
+.none{
+ 
+  padding: 20px;
+  width: fit-content;
+}
+.none:hover{
+  border-bottom: 2px solid black;
+  cursor: pointer;
+  width: fit-content;
+}
 .backForPhone {
   visibility: hidden;
 }
 @media only screen and (max-width: 500px) {
+  .none{
+    display: none;
+  }
   .backForPhone {
     position: absolute;
     right: 350px;
@@ -62,6 +74,7 @@
     border: none;
     z-index: 1000;
     visibility: visible;
+  
   }
   .backForPhone img {
     width: 15px;
@@ -89,7 +102,7 @@
     justify-content: center;
     gap: 25px;
   }
-
+  
   .chooseForm span {
     font-style: normal;
     font-weight: 700;
@@ -97,9 +110,7 @@
     line-height: 24px;
   }
 
-  .none {
-    display: none;
-  }
+ 
   .back {
     display: none;
   }

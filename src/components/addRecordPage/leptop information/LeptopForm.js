@@ -234,7 +234,7 @@ function LeptopForm(props) {
             requirments="მხოლოდ ციფრები"
           />
         </div>
-        <div className={classes.radios}>
+        <div className={classes.leptopCondition}>
           <span>მეხსიერების ტიპი</span>
           <div>
             <input

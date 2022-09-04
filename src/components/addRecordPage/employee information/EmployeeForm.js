@@ -1,9 +1,12 @@
 import Select from "react-select";
 import React, { Fragment, useEffect, useState } from "react";
+import { formActions } from "../../../store/formIsValidSlice";
+import { useDispatch } from "react-redux";
 import classes from "./EmployeeForm.module.css";
 import Input from "../../UI/Input";
 import UseValidation from "../../../Hooks/useValidation";
 function EmployeeForm(props) {
+  const dispatch = useDispatch()
   const [formIsValid, setFormIsValid] = useState(false);
   const [taemIsChoosen, setTeamisChoosen] = useState(false);
   const [positionIsChoosen, setPositionisChoosen] = useState(false);
@@ -67,8 +70,10 @@ function EmployeeForm(props) {
       taemIsChoosen
     ) {
       setFormIsValid(true);
+      dispatch(formActions.setFormIsValid(true))
     } else {
       setFormIsValid(false);
+      dispatch(formActions.setFormIsValid(false))
     }
   }, [
     positionIsChoosen,
