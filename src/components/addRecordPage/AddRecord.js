@@ -78,14 +78,17 @@ function AddRecord() {
               className={page === "employee" ? classes.active : classes.none}
             >
               <span>თანამშრომლის ინფო</span>
+              <span className={classes.half}>1/2</span>
             </div>
             <div
               onClick={nextPageClickHandler}
               className={page === "leptop" ? classes.active : classes.none}
             >
               <span>ლეპტოპის მახასიათებლები</span>
+              <span className={classes.half}>2/2</span>
             </div>
           </div>
+
           <div className={classes.mainForm}>
             {page === "employee" && (
               <EmployeeForm
