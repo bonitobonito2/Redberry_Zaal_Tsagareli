@@ -20,7 +20,6 @@ function ListOfRecords() {
     };
     sendRequest(requestConfig, setRecords);
   }, []);
-  console.log(records, "xd");
 
   if (isLoading) return <p>loading</p>;
   if (!records) return <p>no records yet</p>;
