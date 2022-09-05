@@ -6,6 +6,7 @@ function Card(props) {
     <div className={classes.card}>
       <div className={classes.image}>
         <img
+        alt="leptop"
           src={`https://pcfy.redberryinternship.ge/${props.data.laptop.image}`}
         />
       </div>
