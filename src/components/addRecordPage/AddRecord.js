@@ -107,7 +107,7 @@ function AddRecord() {
             )}
           </div>
           <div>
-            <img src={logo} />
+            <img alt="" src={logo} />
           </div>
         </div>
       </div>
