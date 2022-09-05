@@ -66,10 +66,10 @@ function AddRecord() {
     cpus && (
       <div className={classes.page}>
         <div className={classes.back}>
-          <img src={backButton} onClick={backBtnClickHandler} />
+          <img alt="" src={backButton} onClick={backBtnClickHandler} />
         </div>
         <div onClick={backBtnClickHandler} className={classes.backForPhone}>
-          <img src={backButtonForPhone} onClick={backBtnClickHandler} />
+          <img alt="" src={backButtonForPhone} onClick={backBtnClickHandler} />
         </div>
         <div className={classes.main}>
           <div className={classes.chooseForm}>
