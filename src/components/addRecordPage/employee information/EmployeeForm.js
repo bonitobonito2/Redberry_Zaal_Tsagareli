@@ -76,6 +76,7 @@ function EmployeeForm(props) {
       dispatch(formActions.setFormIsValid(false));
     }
   }, [
+    dispatch,
     positionIsChoosen,
     taemIsChoosen,
     emailIsValid,
@@ -115,6 +116,7 @@ function EmployeeForm(props) {
         selectedPositionTeamId = value.team_id;
         return value;
       }
+      return 0
     });
 
     optionsForPositionn = filteredPositions.map((value) => {
@@ -125,7 +127,7 @@ function EmployeeForm(props) {
     if (selectedItem) setTeamisChoosen(true);
     if (selectedPosition) setPositionisChoosen(true);
     if (selectedPositionTeamId == selectedItemId) setSelectedPosition([]);
-  }, [teamId]);
+  }, [teamId,props.positions]);
 
   return (
     <Fragment>
@@ -140,6 +142,7 @@ function EmployeeForm(props) {
             nameChaker={nameCheker}
             name="სახელი:"
             requirments="მინიმუმ 2 სიმბოლო, ქართული ასოები"
+            placeholder = 'გრიშა'
           />
         </div>
         <div className={classes.nameDiv}>
@@ -152,6 +155,7 @@ function EmployeeForm(props) {
             nameChaker={lastNameCheker}
             name="გვარი:"
             requirments="მინიმუმ 2 სიმბოლო, ქართული ასოები"
+            placeholder = 'ბაგრატიონი'
           />
         </div>
       </div>
@@ -205,7 +209,8 @@ function EmployeeForm(props) {
             value={inputValueOfemail}
             nameChaker={emailCheker}
             name="მეილი:"
-            requirments="   უნდა მთავრდებოდეს @redberry.ge-ით"
+            placeholder = 'grish666@redberry.ge'
+            requirments="უნდა მთავრდებოდეს @redberry.ge-ით"
           />
         </div>
      
@@ -220,7 +225,7 @@ function EmployeeForm(props) {
             value={inputValueOfnumber}
             nameChaker={numberCheker}
             type="text"
-            placeholder="+995"
+            placeholder="+995 598 00 07 01"
             name="ტელეფონის ნომერი:"
             requirments=" უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს"
           />

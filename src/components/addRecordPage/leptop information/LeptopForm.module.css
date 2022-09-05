@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 30px;
   padding-bottom: 50px;
   border-bottom: 1px solid rgb(189, 184, 184);
 }

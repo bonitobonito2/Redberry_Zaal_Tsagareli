@@ -164,6 +164,7 @@ function LeptopForm(props) {
             nameChaker={leptopNameCheker}
             name={"ლეპტოპის სახელი"}
             requirments={"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
+            placeholder = 'HP'
           />
         </div>
         <div className={classes.brand}>
@@ -209,6 +210,7 @@ function LeptopForm(props) {
             nameChaker={CpuBirviCheker}
             name={"CPU-ს ბირთვი"}
             requirments={"მხოლოდ ციფრები"}
+            placeholder = '14'
           />
         </div>
         <div className={classes.inputDivForCpu}>
@@ -221,6 +223,7 @@ function LeptopForm(props) {
             nameChaker={CpuNakadiCheker}
             name={"CPU-ს ნაკადი"}
             requirments={"მხოლოდ ციფრები"}
+            placeholder = '365'
           />
         </div>
       </div>
@@ -235,6 +238,7 @@ function LeptopForm(props) {
             nameChaker={RamCheker}
             name="ლეპტოპის RAM (GB)"
             requirments="მხოლოდ ციფრები"
+            placeholder = '16'
           />
         </div>
         <div className={classes.leptopCondition}>
