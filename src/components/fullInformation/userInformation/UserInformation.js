@@ -11,7 +11,7 @@ function UserInformation(props) {
   return (
     <div className={classes.userInformation}>
       <div className={classes.laptopPic}>
-        <img src={`https://pcfy.redberryinternship.ge/${props.pic}`} />
+        <img alt="" src={`https://pcfy.redberryinternship.ge/${props.pic}`} />
       </div>
       <div className={classes.userInformationDetails}>
         <div className={classes.detail}>

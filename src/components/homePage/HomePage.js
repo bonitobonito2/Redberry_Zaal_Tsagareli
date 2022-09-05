@@ -12,13 +12,13 @@ function HomePage() {
   return (
     <div className={classes.mainPage}>
       <div className={classes.logo}>
-        <img src={reddarbieLogo}  />
+        <img  alt="" src={reddarbieLogo}  />
       </div>
       <div className={classes.picture}>
-        <img src = {mainPageImage} />
+        <img alt="" src = {mainPageImage} />
       </div>
       <div className={classes.pictureForIphone}>
-        <img src = {pictureForIphone} />
+        <img alt="" src = {pictureForIphone} />
       </div>
       <div className={classes.actions}>
         <ActionButtons />

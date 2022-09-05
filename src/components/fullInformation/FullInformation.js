@@ -12,7 +12,7 @@ import { useParams } from "react-router-dom";
 function FullInformation() {
   const params = useParams();
   const navigate = useNavigate();
-  const [sendRequest, isLoading, error] = useHttpHook();
+  const [sendRequest, isLoading] = useHttpHook();
   const [brands, setBrands] = useState();
   const [data, setData] = useState();
   const [team,setTeam] = useState();
@@ -42,17 +42,17 @@ function FullInformation() {
     sendRequest(config, setData);
     sendRequest(configForTeam,setTeam)
     sendRequest(configForPositions,setPosition)
-  }, []);
+  }, [sendRequest,params.recordId]);
   if (isLoading) return <p>loading</p>;
   if (!data || !brands || !team || !position) return <p>something went wrong</p>;
 
   return (
     <div className={classes.information}>
       <div className={classes.back}>
-        <img src={backButton} onClick={backBtnClickHandler} />
+        <img alt="" src={backButton} onClick={backBtnClickHandler} />
       </div>
       <div className={classes.backPhone}>
-        <img src={backPhoneBtn} onClick={backBtnClickHandler} />
+        <img alt="" src={backPhoneBtn} onClick={backBtnClickHandler} />
       </div>
       <div>
         <h2>ლეპტოპის ინფო</h2>

@@ -45,7 +45,7 @@ function ImageUpload(props) {
         onChange={pickedHandler}
       />
 
-      {preview && <img className={classes.img} src={preview} alt="img" />}
+      {preview && <img className={classes.img} src={preview} alt="" />}
       {!preview && <p>ჩააგდე ან ატვირთე ლეპტოპის ფოტო</p>}
 
       <button type="button" onClick={pickImageHandler}>

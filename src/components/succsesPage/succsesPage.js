@@ -13,7 +13,7 @@ function SuccsesPage() {
   return (
     <div className={classes.succses}>
       <div className={classes.succsesInformation}>
-        <img className={classes.img} src={succsesImage} />
+        <img alt="" className={classes.img} src={succsesImage} />
         <span>ჩანაწერი დამატებულია!</span>
         <br />
 
